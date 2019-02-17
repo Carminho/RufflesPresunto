@@ -1,12 +1,13 @@
 package org.academiadecodigo.bootcamp.Item;
 
 import org.academiadecodigo.bootcamp.Position;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class ItemAbstract {
 
 //PROPERTIES
     private Position pos;
-    //private Picture pic;
+    private Picture pic;
 
 
 

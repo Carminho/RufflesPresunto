@@ -3,6 +3,7 @@ package org.academiadecodigo.bootcamp.Room;
 import org.academiadecodigo.bootcamp.ET;
 import org.academiadecodigo.bootcamp.Item.ItemAbstract;
 import org.academiadecodigo.bootcamp.Position;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Room {
 
@@ -12,7 +13,7 @@ public class Room {
     private Position pos;
     private ET et;
     //private ItemAbstract[] item;
-    // private Rectangle room;
+    private Rectangle room;
     private RoomType type;
 
 
