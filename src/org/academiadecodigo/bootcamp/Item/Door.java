@@ -11,8 +11,8 @@ public class Door extends ItemAbstract {
 
 
 //CONSTRUCTOR
-    public Door (DoorType type, int col, int row){
-        super(col, row);
+    public Door (DoorType type){
+        super(type.getPos().getCol(), type.getPos().getRow());
         this.type = type;
 }
 
@@ -26,6 +26,6 @@ public class Door extends ItemAbstract {
 
     @Override
     public String getMessage (){
-        return "";
+        return "teste";
     }
 }
