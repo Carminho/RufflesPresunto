@@ -54,7 +54,9 @@ public class Room {
 //METHODS
     public void interact() {
         for (int i = 0; i < item.length; i++) {
-
+            if (et.getPos().equals(item[i].getPos())) {
+                /** Insert code to show text box */
+            }
         }
     }
 

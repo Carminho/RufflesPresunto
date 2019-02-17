@@ -7,7 +7,7 @@ public class ET {
 
     //PROPERTIES
     private Position pos;
-    private Picture pic = new Picture();
+    private Picture pic = new Picture((pos.getCol() * pos.getCELL_SIZE()) + 10,(pos.getRow() * pos.getCELL_SIZE()) + 10,"ET.png");
 
 
     //CONSTRUCTOR
@@ -49,6 +49,10 @@ public class ET {
     public void goDown() {
         pos.moveDirection(Direction.DOWN);
         pic.translate(0, pos.getCELL_SIZE());
+    }
+
+    public void show() {
+        pic.draw();
     }
 
 }
