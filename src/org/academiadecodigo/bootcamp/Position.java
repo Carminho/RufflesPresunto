@@ -5,13 +5,15 @@ import org.academiadecodigo.bootcamp.Room.Room;
 
 public class Position {
 
+    private final int MAX_COL = 5;
+    private final int MAX_ROW = 5;
+    private final int CELL_SIZE = 40;
+
     //Properties
     private int col;
     private int row;
-    private final int MAX_COL = 5;
-    private final int MAX_ROW = 5;
     private Room room;
-    private final int CELL_SIZE = 40;
+
 
 
     //CONSTRUCTOR

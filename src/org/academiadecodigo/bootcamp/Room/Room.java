@@ -7,6 +7,7 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Room {
 
+    private final int PADDING = 10;
 
     //PROPERTIES
     private Position pos;
@@ -14,7 +15,7 @@ public class Room {
     private ItemAbstract[] item;
     private Rectangle room;
     private RoomType type;
-    private final int PADDING = 10;
+
 
 
     //CONSTRUCTOR
@@ -28,20 +29,18 @@ public class Room {
 
         for (int i = 0; i < type.getDoors().length; i++) {
             item[index] = type.getDoors()[i];
-            index = index + 1;
+            index += 1;
         }
 
         for (int i = 0; i < type.getItems().length; i++) {
             item[index] = type.getItems()[i];
-            index = index + 1;
+            index += 1;
         }
 
     }
 
 
 //METHODS
-
-
     public void interact() {
         for (int i = 0; i < item.length; i++) {
 
