@@ -11,8 +11,8 @@ public class Room {
 //PROPERTIES
     private Position pos;
     private ET et;
-    private ItemAbstract[] item;
-   // private Rectangle room;
+    //private ItemAbstract[] item;
+    // private Rectangle room;
     private RoomType type;
 
 
