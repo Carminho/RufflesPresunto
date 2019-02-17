@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp.ET;
 import org.academiadecodigo.bootcamp.Item.ItemAbstract;
 import org.academiadecodigo.bootcamp.Position;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Room {
 
@@ -13,8 +14,9 @@ public class Room {
     private Position pos;
     private ET et;
     private ItemAbstract[] item;
-    private Rectangle room;
+    private Rectangle field;
     private RoomType type;
+    private Picture floor;
 
 
 
@@ -36,6 +38,15 @@ public class Room {
             item[index] = type.getItems()[i];
             index += 1;
         }
+        field = new Rectangle(PADDING,PADDING,400,400);
+        field.draw();
+
+
+
+            floor = new Picture(PADDING,PADDING,"tile.png");
+            floor.draw();
+
+
 
     }
 
