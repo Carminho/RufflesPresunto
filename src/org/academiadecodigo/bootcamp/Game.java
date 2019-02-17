@@ -29,6 +29,7 @@ public class Game {
             rooms[i] = new Room(RoomType.values()[i]);
             System.out.println("A " + RoomType.values()[i] + " was created");
         }
+
         return rooms;
     }
 
