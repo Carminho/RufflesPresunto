@@ -2,22 +2,27 @@ package org.academiadecodigo.bootcamp.Item;
 
 import org.academiadecodigo.bootcamp.Position;
 
-public abstract class Item {
+public abstract class ItemAbstract {
 
 //PROPERTIES
     private Position pos;
-    private Picture pic;
+    //private Picture pic;
 
 
 
 //CONSTRUCTOR
-    public Item (Position x, Position y){
-
+    public ItemAbstract(int col, int row){
+        pos = new Position(col, row);
     }
 
 
 
 //METHODS
     public abstract String getMessage ();
+
+
+    public Position getPos (){
+        return pos;
+    }
 
 }
