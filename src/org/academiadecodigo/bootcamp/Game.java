@@ -5,6 +5,8 @@ import org.academiadecodigo.bootcamp.Room.RoomType;
 
 public class Game {
 
+    private static final int PADDING = 10;
+
 //PROPERTIES
     private Room[] rooms;
 
@@ -20,13 +22,14 @@ public class Game {
 
 //METHODS
     public void start (){
+        createRooms();
 
     }
 
 
-    public Room[] createRooms (int col, int row){
+    private Room[] createRooms (){
         for (int i=0; i<rooms.length; i++){
-            rooms[i] = new Room(RoomType.values()[i],col,row);
+            rooms[i] = new Room(RoomType.values()[i],PADDING,PADDING);
             System.out.println("A " + RoomType.values()[i] + " was created");
         }
         return rooms;
