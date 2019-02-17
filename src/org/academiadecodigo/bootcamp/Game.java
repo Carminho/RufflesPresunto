@@ -24,8 +24,12 @@ public class Game {
     }
 
 
-    public void createRooms (){
-
+    public Room[] createRooms (int col, int row){
+        for (int i=0; i<rooms.length; i++){
+            rooms[i] = new Room(RoomType.values()[i],col,row);
+            System.out.println("A " + RoomType.values()[i] + " was created");
+        }
+        return rooms;
     }
 
 }

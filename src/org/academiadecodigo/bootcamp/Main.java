@@ -6,7 +6,8 @@ import org.academiadecodigo.bootcamp.Room.RoomType;
 public class Main {
 
     public static void main(String[] args) {
-        Room room = new Room(RoomType.DISSECTION_CELL,10,20);
-        
+        Game game = new Game();
+        game.createRooms(10,10);
+
     }
 }
