@@ -32,18 +32,19 @@ public class Position {
     }
 
 
-    public void setCol() {
-
+    public void setCol(int col) {
+        this.col = col;
     }
 
 
-    public void setRow() {
-
+    public void setRow(int row) {
+        this.row = row;
     }
 
     public int getCELL_SIZE() {
         return CELL_SIZE;
     }
+
 
     public int getMaxCol() {
         return MAX_COL;
