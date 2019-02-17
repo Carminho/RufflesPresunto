@@ -7,7 +7,6 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Room {
 
-    private final int CELL_SIZE = 10;
 
 //PROPERTIES
     private Position pos;
