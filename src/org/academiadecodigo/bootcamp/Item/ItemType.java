@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.Item;
 
+import org.academiadecodigo.bootcamp.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public enum ItemType {
@@ -22,12 +23,16 @@ public enum ItemType {
 
 //PROPERTIES
     private Picture image;
+    private Position pos;
 
 
 //CONSTRUCTOR
     ItemType (int col, int row, double x, double y, String image){
         this.image = new Picture(x,y,image);
+
     }
 
-
+    public Position getPos() {
+        return pos;
+    }
 }
