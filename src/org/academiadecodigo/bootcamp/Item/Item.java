@@ -18,6 +18,10 @@ public class Item extends ItemAbstract {
 
 
 //METHODS
+    public ItemType getType(){
+        return type;
+    }
+
     @Override
     public String getMessage (){
         return "";

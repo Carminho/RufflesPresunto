@@ -18,8 +18,9 @@ public class Room {
 
 
 //CONSTRUCTOR
-    public Room (RoomType type){
+    public Room (RoomType type, int col, int row){
         this.type = type;
+        pos = new Position (col, row);
     }
 
 

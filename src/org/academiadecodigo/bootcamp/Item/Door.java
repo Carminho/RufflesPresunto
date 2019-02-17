@@ -11,20 +11,20 @@ public class Door extends ItemAbstract {
 
 
 //CONSTRUCTOR
-    public ItemAbstract(Position x, Position y){
-
-    }
+    public Door (int col, int row){
+        super(col, row);
+}
 
 
 
 //METHODS
     public void changeRoom (Room room){
-
+        System.out.println("");
     }
 
 
     @Override
     public String getMessage (){
-
+        return "";
     }
 }

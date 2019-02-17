@@ -4,7 +4,7 @@ public class ET {
 
 //PROPERTIES
     private Position pos;
-    private Picture pic;
+    //private Picture pic;
 
 
 
