@@ -4,7 +4,7 @@ public enum DoorType {
 
     ONE_TWO("Entering Security Room..."),
     TWO_ONE("Entering Dissection Cell..."),
-    TWO_THREE("Entering lobby..."),
+    TWO_THREE("Entering Lobby..."),
     THREE_TWO("Entering Security Room..."),
     THREE_FOUR("Entering Meeting Room..."),
     FOUR_THREE("Entering Lobby..."),

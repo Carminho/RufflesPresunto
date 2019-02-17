@@ -7,12 +7,13 @@ public class Door extends ItemAbstract {
 
 //PROPERTIES
     private Room nextRoom;
-
+    private DoorType type;
 
 
 //CONSTRUCTOR
-    public Door (int col, int row){
+    public Door (DoorType type, int col, int row){
         super(col, row);
+        this.type = type;
 }
 
 

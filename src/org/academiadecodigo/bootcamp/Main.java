@@ -7,6 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
         Room room = new Room(RoomType.DISSECTION_CELL,10,20);
-
+        
     }
 }
