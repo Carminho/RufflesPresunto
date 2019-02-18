@@ -1,9 +1,9 @@
-package org.academiadecodigo.bootcamp.Item;
+package org.academiadecodigo.bootcamp.GameObjects;
 
 import org.academiadecodigo.bootcamp.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public abstract class ItemAbstract {
+public abstract class GameObject {
 
 //PROPERTIES
     private Position pos;
@@ -12,7 +12,7 @@ public abstract class ItemAbstract {
 
 
 //CONSTRUCTOR
-    public ItemAbstract(int col, int row){
+    public GameObject(int col, int row){
         pos = new Position(col, row);
     }
 
@@ -25,5 +25,7 @@ public abstract class ItemAbstract {
     public Position getPos (){
         return pos;
     }
+
+    //public abstract void showInteraction ();
 
 }

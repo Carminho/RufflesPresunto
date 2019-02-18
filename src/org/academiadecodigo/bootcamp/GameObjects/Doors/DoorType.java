@@ -1,4 +1,4 @@
-package org.academiadecodigo.bootcamp.Item;
+package org.academiadecodigo.bootcamp.GameObjects.Doors;
 
 import org.academiadecodigo.bootcamp.Position;
 
