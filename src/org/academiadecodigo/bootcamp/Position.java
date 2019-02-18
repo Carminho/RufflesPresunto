@@ -5,9 +5,10 @@ import org.academiadecodigo.bootcamp.Room.Room;
 
 public class Position {
 
-    private final int MAX_COL = 5;
-    private final int MAX_ROW = 5;
-    private final int CELL_SIZE = 40;
+    private final int MAX_COL = 9;
+    private final int MAX_ROW = 9;
+    private final int CELL_SIZE = 60;
+    private final int PADDING = 10;
 
     //Properties
     private int col;
@@ -33,6 +34,9 @@ public class Position {
         return row;
     }
 
+    public int getPADDING() {
+        return PADDING;
+    }
 
     public void setCol(int col) {
         this.col = col;
@@ -60,22 +64,22 @@ public class Position {
         switch (direction) {
 
             case UP:
-                if (row > 0) {
+                if (row >= 0) {
                     row = row - 1;
                     break;
                 }
             case DOWN:
-                if (row < MAX_ROW) {
+                if (row < MAX_ROW - 1) {
                     row = row + 1;
                     break;
                 }
             case LEFT:
-                if (col > 0) {
+                if (col >= 0) {
                     col = col - 1;
                     break;
                 }
             case RIGHT:
-                if (col < MAX_COL) {
+                if (col < MAX_COL - 1) {
                     col = col + 1;
                     break;
                 }

@@ -8,10 +8,10 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Room {
 
-    private final int PADDING = 10;
+
 
     //PROPERTIES
-    private Position pos;
+    private Position pos = new Position(0,0);
     private ET et;
     private ItemAbstract[] item;
     private Rectangle field;
@@ -23,7 +23,7 @@ public class Room {
     //CONSTRUCTOR
     public Room(RoomType type) {
         this.type = type;
-        pos = new Position(PADDING, PADDING);
+        pos = new Position(pos.getPADDING(), pos.getPADDING());
 
         item = new ItemAbstract[type.getDoors().length + type.getItems().length];
 
@@ -38,12 +38,13 @@ public class Room {
             item[index] = type.getItems()[i];
             index += 1;
         }
-        field = new Rectangle(PADDING,PADDING,400,400);
+        field = new Rectangle(pos.getPADDING(),pos.getPADDING(),600,600);
         field.draw();
 
 
 
-            floor = new Picture(PADDING,PADDING,"tile.png");
+
+            floor = new Picture(pos.getPADDING(),pos.getPADDING(),"bg.png");
             floor.draw();
 
 
