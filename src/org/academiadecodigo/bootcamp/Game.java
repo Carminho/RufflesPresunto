@@ -13,7 +13,7 @@ public class Game implements KeyboardHandler {
     //PROPERTIES
     private Room[] rooms;
     private Room currentRoom;
-    ET et;
+    private ET et;
 
 
     //CONSTRUCTOR
@@ -25,6 +25,7 @@ public class Game implements KeyboardHandler {
 
     //METHODS
     public void start() {
+        controlKeys();
         createRooms();
         et = new ET(0, 0);
         et.show();

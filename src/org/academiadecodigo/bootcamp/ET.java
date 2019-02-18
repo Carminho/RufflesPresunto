@@ -7,7 +7,7 @@ public class ET {
 
     //PROPERTIES
     private Position pos;
-    private Picture pic = new Picture((pos.getCol() * pos.getCELL_SIZE()) + 10,(pos.getRow() * pos.getCELL_SIZE()) + 10,"ET.png");
+    private Picture pic = new Picture(60,60,"ET.png");
 
 
     //CONSTRUCTOR
