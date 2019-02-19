@@ -40,7 +40,7 @@ public class Room {
         }
 
 
-        scenery= new Picture(pos.PADDING,pos.PADDING,"scenery.jpeg");
+        scenery= new Picture(pos.PADDING,pos.PADDING,"dissection-room.jpeg");
         scenery.draw();
 
     }
