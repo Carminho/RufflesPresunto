@@ -19,7 +19,7 @@ public class Room {
     //CONSTRUCTOR
     public Room(RoomType type) {
         this.type = type;
-        pos = new Position(pos.getPADDING(), pos.getPADDING());
+        pos = new Position(pos.PADDING, pos.PADDING);
 
         items = new GameObject[type.getDoors().length + type.getItems().length];
 
@@ -35,7 +35,7 @@ public class Room {
             index += 1;
         }
 
-        scenery= new Picture(pos.getPADDING(),pos.getPADDING(),"scenery.jpeg");
+        scenery= new Picture(pos.PADDING,pos.PADDING,"scenery.jpeg");
         scenery.draw();
 
 

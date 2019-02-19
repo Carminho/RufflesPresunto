@@ -14,7 +14,7 @@ public class ET {
     //CONSTRUCTOR
     public ET(int col, int row) {
         pos = new Position(col, row);
-        pic = new Picture(pos.getCELL_SIZE() + pos.getPADDING(), pos.getCELL_SIZE() + pos.getPADDING(), "et.png");
+        pic = new Picture(pos.CELL_SIZE + pos.PADDING, pos.CELL_SIZE + pos.PADDING, "et.png");
         currentDirection = Direction.LEFT;
     }
 
@@ -35,12 +35,12 @@ public class ET {
         if (pos.getCol() >= 0) {
             if (currentDirection == Direction.LEFT) {
                 pos.moveDirection(Direction.LEFT);
-                pic.translate(-(pos.getCELL_SIZE()), 0);
+                pic.translate(-(pos.CELL_SIZE), 0);
             } else {
                 pos.moveDirection(Direction.LEFT);
                 currentDirection = Direction.LEFT;
                 pic.grow(60, 0);
-                pic.translate(-(pos.getCELL_SIZE()), 0);
+                pic.translate(-(pos.CELL_SIZE), 0);
             }
         }
     }
@@ -50,12 +50,12 @@ public class ET {
         if (pos.getCol() < pos.getMaxCol() - 1) {
             if (currentDirection == Direction.RIGHT) {
                 pos.moveDirection(Direction.RIGHT);
-                pic.translate(pos.getCELL_SIZE(), 0);
+                pic.translate(pos.CELL_SIZE, 0);
             } else {
                 pos.moveDirection(Direction.RIGHT);
                 currentDirection = Direction.RIGHT;
                 pic.grow(-60, 0);
-                pic.translate(pos.getCELL_SIZE(), 0);
+                pic.translate(pos.CELL_SIZE, 0);
             }
         }
     }
@@ -64,14 +64,14 @@ public class ET {
     public void goUp() {
         if (pos.getRow() >= 0) {
             pos.moveDirection(Direction.UP);
-            pic.translate(0, -(pos.getCELL_SIZE()));
+            pic.translate(0, -(pos.CELL_SIZE));
         }
     }
 
     public void goDown() {
         if (pos.getRow() < pos.getMaxRow() - 1) {
             pos.moveDirection(Direction.DOWN);
-            pic.translate(0, pos.getCELL_SIZE());
+            pic.translate(0, pos.CELL_SIZE);
         }
     }
 

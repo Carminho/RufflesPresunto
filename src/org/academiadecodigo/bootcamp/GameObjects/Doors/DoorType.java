@@ -16,9 +16,11 @@ public enum DoorType {
     SIX_THREE(1,1,"Entering Lobby...");
 
 
+
 //PROPERTIES
     private Position pos;
     private String message;
+
 
 
 //CONSTRUCTOR
@@ -27,9 +29,11 @@ public enum DoorType {
         System.out.println(message);
     }
 
+
     public Position getPos (){
         return pos;
     }
+
 
     public String getMessage (){
         return message;

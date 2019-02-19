@@ -22,9 +22,11 @@ public enum ItemType {
     ET_GAME_DISK(1,2,1,2,"Finally I'm going to get out of this hole in Alamogordo.");
 
 
+
 //PROPERTIES
     private Position pos;
     private String message;
+
 
 
 //CONSTRUCTOR
@@ -32,9 +34,11 @@ public enum ItemType {
         pos = new Position(col,row);
     }
 
+
     public Position getPos() {
         return pos;
     }
+
 
     public String getMessage (){
         return message;

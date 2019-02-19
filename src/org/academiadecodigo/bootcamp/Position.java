@@ -5,12 +5,12 @@ import org.academiadecodigo.bootcamp.Room.Room;
 
 public class Position {
 
-    private final int MAX_COL = 9;
-    private final int MAX_ROW = 9;
-    private final int CELL_SIZE = 60;
-    private final int PADDING = 10;
+    public final int MAX_COL = 9;
+    public final int MAX_ROW = 9;
+    public final int CELL_SIZE = 60;
+    public final int PADDING = 10;
 
-    //Properties
+    //PROPERTIES
     private int col;
     private int row;
     private Room room;
@@ -34,9 +34,6 @@ public class Position {
         return row;
     }
 
-    public int getPADDING() {
-        return PADDING;
-    }
 
     public void setCol(int col) {
         this.col = col;
@@ -45,10 +42,6 @@ public class Position {
 
     public void setRow(int row) {
         this.row = row;
-    }
-
-    public int getCELL_SIZE() {
-        return CELL_SIZE;
     }
 
 
