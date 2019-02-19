@@ -13,7 +13,7 @@ public class ET {
 
     //CONSTRUCTOR
     public ET(int col, int row) {
-        pos = new Position(0, 0);
+        pos = new Position(col, row);
         pic = new Picture(pos.PADDING, pos.PADDING, "et.png");
         currentDirection = Direction.LEFT;
     }
@@ -80,4 +80,12 @@ public class ET {
         pic.draw();
     }
 
+    @Override
+    public String toString() {
+        return "ET{" +
+                "pos=" + pos +
+                ", pic=" + pic +
+                ", currentDirection=" + currentDirection +
+                '}';
+    }
 }

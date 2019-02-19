@@ -33,10 +33,10 @@ public class Door extends GameObject {
         return "something went wrong! - Door";
     }
 
-    /*public abstract void showInteraction (GameObject type){
+    public void showInteraction (GameObject type){
 
     }
-    */
+
 
 }
 

@@ -26,18 +26,18 @@ public enum RoomType {
     //CONSTRUCTOR
     //rooms with 3 items and 1 door
     RoomType(ItemType type1, ItemType type2, ItemType type3, ItemType type4, ItemType type5, ItemType type6, ItemType type7, ItemType type8, ItemType type9, ItemType type10, ItemType type11, DoorType type12, String pic, int col, int row) {
-        this.items = new Item[3];
+        this.items = new Item[11];
         this.items[0] = new Item(type1);
         this.items[1] = new Item(type2);
         this.items[2] = new Item(type3);
-        this.items[2] = new Item(type4);
-        this.items[2] = new Item(type5);
-        this.items[2] = new Item(type6);
-        this.items[2] = new Item(type7);
-        this.items[2] = new Item(type8);
-        this.items[2] = new Item(type9);
-        this.items[2] = new Item(type10);
-        this.items[2] = new Item(type11);
+        this.items[3] = new Item(type4);
+        this.items[4] = new Item(type5);
+        this.items[5] = new Item(type6);
+        this.items[6] = new Item(type7);
+        this.items[7] = new Item(type8);
+        this.items[8] = new Item(type9);
+        this.items[9] = new Item(type10);
+        this.items[10] = new Item(type11);
         this.doors = new Door[1];
         this.doors[0] = new Door(type12);
         this.pic = new Picture(col, row, pic);

@@ -83,4 +83,18 @@ public class Position {
     public boolean equals(Position pos) {
         return this.col == pos.getCol() && this.row == pos.getRow();
     }
+
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "MAX_COL=" + MAX_COL +
+                ", MAX_ROW=" + MAX_ROW +
+                ", CELL_SIZE=" + CELL_SIZE +
+                ", PADDING=" + PADDING +
+                ", col=" + col +
+                ", row=" + row +
+                ", room=" + room +
+                '}';
+    }
 }

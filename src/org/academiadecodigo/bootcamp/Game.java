@@ -26,6 +26,7 @@ public class Game implements KeyboardHandler {
     public void start() {
         controlKeys();
         createRooms();
+        currentRoom = new Room(RoomType.DISSECTION_CELL);
         et = new ET(0, 0);
         et.move(6, 2);
         et.show();
@@ -145,6 +146,7 @@ public class Game implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_SPACE:
                 currentRoom.interact();
+                System.out.println("Space");
                 break;
             case KeyboardEvent.KEY_0:
                 break;

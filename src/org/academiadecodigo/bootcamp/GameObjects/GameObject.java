@@ -30,7 +30,13 @@ public abstract class GameObject {
 
 
 
-    /*public abstract void showInteraction (GameObject type);
-    */
+    public abstract void showInteraction (GameObject type);
 
+
+    @Override
+    public String toString() {
+        return "GameObject{" +
+                "pos=" + pos +
+                '}';
+    }
 }
