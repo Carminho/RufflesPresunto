@@ -7,11 +7,9 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Room {
 
-<<<<<<< HEAD
     private final int PADDING = 10;
 
-=======
->>>>>>> 4f81f135244335a0e323b570c0617bbb8c59517f
+
     //PROPERTIES
     private Position pos;
     private ET et;
@@ -24,11 +22,8 @@ public class Room {
     //CONSTRUCTOR
     public Room(RoomType type) {
         this.type = type;
-<<<<<<< HEAD
+
         pos = new Position(PADDING, PADDING);
-=======
-        pos = new Position(pos.PADDING, pos.PADDING);
->>>>>>> 4f81f135244335a0e323b570c0617bbb8c59517f
 
         items = new GameObject[type.getDoors().length + type.getItems().length];
 
@@ -43,21 +38,10 @@ public class Room {
             items[index] = type.getItems()[i];
             index += 1;
         }
-<<<<<<< HEAD
-        field = new Rectangle(PADDING,PADDING,400,400);
-        field.draw();
 
-
-
-            floor = new Picture(PADDING,PADDING,"tile.png");
-            floor.draw();
-=======
 
         scenery= new Picture(pos.PADDING,pos.PADDING,"scenery.jpeg");
         scenery.draw();
->>>>>>> 4f81f135244335a0e323b570c0617bbb8c59517f
-
-
 
     }
 
