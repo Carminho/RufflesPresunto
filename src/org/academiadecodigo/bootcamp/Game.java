@@ -16,10 +16,10 @@ public class Game implements KeyboardHandler {
     private ET et;
 
 
+
     //CONSTRUCTOR
     public Game() {
         rooms = new Room[RoomType.values().length];
-
     }
 
 
@@ -32,17 +32,17 @@ public class Game implements KeyboardHandler {
     }
 
 
-
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
 
+
+    //este método é para alterar. Deve ser criada apenas a primeira room
     private Room[] createRooms() {
         for (int i = 0; i < rooms.length; i++) {
             rooms[i] = new Room(RoomType.values()[i]);
             System.out.println("A " + RoomType.values()[i] + " was created");
         }
-
         return rooms;
     }
 
@@ -100,6 +100,7 @@ public class Game implements KeyboardHandler {
                 break;
         }
     }
+
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {

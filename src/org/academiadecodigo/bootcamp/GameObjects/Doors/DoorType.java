@@ -17,8 +17,8 @@ public enum DoorType {
 
 
 //PROPERTIES
-    private String message;
     private Position pos;
+    private String message;
 
 
 //CONSTRUCTOR
@@ -30,4 +30,9 @@ public enum DoorType {
     public Position getPos (){
         return pos;
     }
+
+    public String getMessage (){
+        return message;
+    }
+
 }

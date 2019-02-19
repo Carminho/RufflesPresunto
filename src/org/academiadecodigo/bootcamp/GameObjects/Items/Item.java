@@ -23,24 +23,18 @@ public class Item extends GameObject {
     }
 
     @Override
-    public String getMessage (){
-        return "";
+    public String getMessage (GameObject type){
+        if(type.getClass() == Item.class) {
+            return ((Item)type).type.getMessage();
+        }
+        return "something went wrong! - Item";
     }
 
-    /*@Override
-    public void showInteraction (ItemType type){
-        switch (type){
-            case ONE_TWO: System.out.println("interact ONE_TWO");
-            case TWO_ONE: System.out.println("interact TWO_ONE");
-            case TWO_THREE: System.out.println("interact TWO_THREE");
-            case THREE_TWO: System.out.println("interact THREE_TWO");
-            case THREE_FOUR: System.out.println("interact THREE_FOUR");
-            case FOUR_THREE: System.out.println("interact FOUR_THREE");
-            case THREE_FIVE: System.out.println("interact THREE_FIVE");
-            case FIVE_THREE: System.out.println("interact FIVE_THREE");
-            case THREE_SIX: System.out.println("interact THREE_SIX");
-            case SIX_THREE: System.out.println("interact SIX_THREE");
-        }
-    }*/
 
+    /*public void showInteraction (GameObject type){
+
+        }
+    */
 }
+
+

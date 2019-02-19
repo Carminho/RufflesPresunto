@@ -7,8 +7,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Room {
 
-
-
     //PROPERTIES
     private Position pos = new Position(0,0);
     private ET et;
@@ -37,7 +35,7 @@ public class Room {
             index += 1;
         }
 
-        scenery= new Picture(pos.getPADDING(),pos.getPADDING(),"bg.png");
+        scenery= new Picture(pos.getPADDING(),pos.getPADDING(),"scenery.jpeg");
         scenery.draw();
 
 

@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.GameObjects.Doors;
 
 import org.academiadecodigo.bootcamp.GameObjects.GameObject;
+import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
 import org.academiadecodigo.bootcamp.Room.Room;
 
 public class Door extends GameObject {
@@ -25,26 +26,17 @@ public class Door extends GameObject {
 
 
     @Override
-    public String getMessage (){
-        return "teste";
+    public String getMessage (GameObject type){
+        if(type.getClass() == Door.class) {
+            return ((Door)type).type.getMessage();
+        }
+        return "something went wrong! - Door";
     }
 
+    /*public abstract void showInteraction (GameObject type){
 
-    /*@Override
-    public void showInteraction (DoorType type){
-        switch (type){
-            case ONE_TWO: System.out.println("interact ONE_TWO");
-            case TWO_ONE: System.out.println("interact TWO_ONE");
-            case TWO_THREE: System.out.println("interact TWO_THREE");
-            case THREE_TWO: System.out.println("interact THREE_TWO");
-            case THREE_FOUR: System.out.println("interact THREE_FOUR");
-            case FOUR_THREE: System.out.println("interact FOUR_THREE");
-            case THREE_FIVE: System.out.println("interact THREE_FIVE");
-            case FIVE_THREE: System.out.println("interact FIVE_THREE");
-            case THREE_SIX: System.out.println("interact THREE_SIX");
-            case SIX_THREE: System.out.println("interact SIX_THREE");
-        }
-    }*/
+    }
+    */
 
 }
 

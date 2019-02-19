@@ -6,14 +6,15 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class ET {
 
     //PROPERTIES
-    private Position pos = new Position(0, 0);
-    private Picture pic = new Picture(60 + pos.getPADDING(), 60 + pos.getPADDING(), "et.png");
+    private Position pos;
+    private Picture pic;
     private Direction currentDirection;
 
 
     //CONSTRUCTOR
     public ET(int col, int row) {
         pos = new Position(col, row);
+        pic = new Picture(pos.getCELL_SIZE() + pos.getPADDING(), pos.getCELL_SIZE() + pos.getPADDING(), "et.png");
         currentDirection = Direction.LEFT;
     }
 

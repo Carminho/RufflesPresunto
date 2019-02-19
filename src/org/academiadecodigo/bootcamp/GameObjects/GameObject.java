@@ -1,5 +1,7 @@
 package org.academiadecodigo.bootcamp.GameObjects;
 
+import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
+import org.academiadecodigo.bootcamp.GameObjects.Items.ItemType;
 import org.academiadecodigo.bootcamp.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -7,7 +9,7 @@ public abstract class GameObject {
 
 //PROPERTIES
     private Position pos;
-    private Picture pic;
+    //private Picture pic;
 
 
 
@@ -19,13 +21,16 @@ public abstract class GameObject {
 
 
 //METHODS
-    public abstract String getMessage ();
-
-
     public Position getPos (){
         return pos;
     }
 
-    //public abstract void showInteraction ();
+
+    public abstract String getMessage (GameObject type);
+
+
+
+    /*public abstract void showInteraction (GameObject type);
+    */
 
 }
