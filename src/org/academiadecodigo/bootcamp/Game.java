@@ -16,7 +16,6 @@ public class Game implements KeyboardHandler {
     private ET et;
 
 
-
     //CONSTRUCTOR
     public Game() {
         rooms = new Room[RoomType.values().length];
@@ -28,7 +27,7 @@ public class Game implements KeyboardHandler {
         controlKeys();
         createRooms();
         et = new ET(0, 0);
-        et.move(6,2);
+        et.move(6, 2);
         et.show();
     }
 
@@ -76,6 +75,56 @@ public class Game implements KeyboardHandler {
         spacePressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         kb.addEventListener(spacePressed);
 
+        KeyboardEvent zeroPressed = new KeyboardEvent();
+        zeroPressed.setKey(KeyboardEvent.KEY_0);
+        zeroPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(zeroPressed);
+
+        KeyboardEvent onePressed = new KeyboardEvent();
+        onePressed.setKey(KeyboardEvent.KEY_1);
+        onePressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(onePressed);
+
+        KeyboardEvent twoPressed = new KeyboardEvent();
+        twoPressed.setKey(KeyboardEvent.KEY_2);
+        twoPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(twoPressed);
+
+        KeyboardEvent threePressed = new KeyboardEvent();
+        threePressed.setKey(KeyboardEvent.KEY_3);
+        threePressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(threePressed);
+
+        KeyboardEvent fourPressed = new KeyboardEvent();
+        fourPressed.setKey(KeyboardEvent.KEY_4);
+        fourPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(fourPressed);
+
+        KeyboardEvent fivePressed = new KeyboardEvent();
+        fivePressed.setKey(KeyboardEvent.KEY_5);
+        fivePressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(fivePressed);
+
+        KeyboardEvent sixPressed = new KeyboardEvent();
+        sixPressed.setKey(KeyboardEvent.KEY_6);
+        sixPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(sixPressed);
+
+        KeyboardEvent sevenPressed = new KeyboardEvent();
+        sevenPressed.setKey(KeyboardEvent.KEY_7);
+        sevenPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(sevenPressed);
+
+        KeyboardEvent eightPressed = new KeyboardEvent();
+        eightPressed.setKey(KeyboardEvent.KEY_8);
+        eightPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(eightPressed);
+
+        KeyboardEvent ninePressed = new KeyboardEvent();
+        ninePressed.setKey(KeyboardEvent.KEY_9);
+        ninePressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        kb.addEventListener(ninePressed);
+
     }
 
 
@@ -96,6 +145,27 @@ public class Game implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_SPACE:
                 currentRoom.interact();
+                break;
+            case KeyboardEvent.KEY_0:
+                break;
+            case KeyboardEvent.KEY_1:
+                break;
+            case KeyboardEvent.KEY_2:
+                break;
+            case KeyboardEvent.KEY_3:
+                break;
+            case KeyboardEvent.KEY_4:
+                break;
+            case KeyboardEvent.KEY_5:
+                break;
+            case KeyboardEvent.KEY_6:
+                break;
+            case KeyboardEvent.KEY_7:
+                break;
+            case KeyboardEvent.KEY_8:
+                break;
+            case KeyboardEvent.KEY_9:
+                break;
             default:
                 System.out.println("Something went wrong here.\n");
                 break;
