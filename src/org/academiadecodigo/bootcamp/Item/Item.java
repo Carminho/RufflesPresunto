@@ -27,4 +27,7 @@ public class Item extends ItemAbstract {
         return "";
     }
 
+    @Override
+    public abstract void showInteraction();
+
 }

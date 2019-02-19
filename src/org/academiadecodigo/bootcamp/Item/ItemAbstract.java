@@ -26,4 +26,6 @@ public abstract class ItemAbstract {
         return pos;
     }
 
+    public abstract void showInteraction();
+
 }
