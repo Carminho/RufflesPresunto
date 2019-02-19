@@ -28,6 +28,7 @@ public class Game implements KeyboardHandler {
         controlKeys();
         createRooms();
         et = new ET(0, 0);
+        // GIT IS DUMB
         et.show();
     }
 
