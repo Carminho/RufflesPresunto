@@ -13,8 +13,8 @@ public class ET {
 
     //CONSTRUCTOR
     public ET(int col, int row) {
-        pos = new Position(col, row);
-        pic = new Picture(pos.CELL_SIZE + pos.PADDING, pos.CELL_SIZE + pos.PADDING, "et.png");
+        pos = new Position(0, 0);
+        pic = new Picture(pos.PADDING, pos.PADDING, "et.png");
         currentDirection = Direction.LEFT;
     }
 
@@ -24,15 +24,16 @@ public class ET {
         return pos;
     }
 
+    public void move(int col, int row) {
+        pos.setRow(pos.getRow() + row);
+        pos.setCol(pos.getCol() + col);
+        pic.translate(col * pos.CELL_SIZE, row * pos.CELL_SIZE);
 
-    public void setPosition(int col, int row) {
-        pos.setCol(col);
-        pos.setRow(row);
     }
 
 
     public void goLeft() {
-        if (pos.getCol() >= 0) {
+        if (pos.getCol() > 0) {
             if (currentDirection == Direction.LEFT) {
                 pos.moveDirection(Direction.LEFT);
                 pic.translate(-(pos.CELL_SIZE), 0);
@@ -47,7 +48,7 @@ public class ET {
 
 
     public void goRight() {
-        if (pos.getCol() < pos.getMaxCol() - 1) {
+        if (pos.getCol() < pos.getMaxCol()) {
             if (currentDirection == Direction.RIGHT) {
                 pos.moveDirection(Direction.RIGHT);
                 pic.translate(pos.CELL_SIZE, 0);
@@ -62,14 +63,14 @@ public class ET {
 
 
     public void goUp() {
-        if (pos.getRow() >= 0) {
+        if (pos.getRow() > 0) {
             pos.moveDirection(Direction.UP);
             pic.translate(0, -(pos.CELL_SIZE));
         }
     }
 
     public void goDown() {
-        if (pos.getRow() < pos.getMaxRow() - 1) {
+        if (pos.getRow() < pos.getMaxRow()) {
             pos.moveDirection(Direction.DOWN);
             pic.translate(0, pos.CELL_SIZE);
         }

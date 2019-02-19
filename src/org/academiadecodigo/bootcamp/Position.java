@@ -57,22 +57,22 @@ public class Position {
         switch (direction) {
 
             case UP:
-                if (row >= 0) {
+                if (row > 0) {
                     row = row - 1;
                     break;
                 }
             case DOWN:
-                if (row < MAX_ROW - 1) {
+                if (row < MAX_ROW) {
                     row = row + 1;
                     break;
                 }
             case LEFT:
-                if (col >= 0) {
+                if (col > 0) {
                     col = col - 1;
                     break;
                 }
             case RIGHT:
-                if (col < MAX_COL - 1) {
+                if (col < MAX_COL) {
                     col = col + 1;
                     break;
                 }
