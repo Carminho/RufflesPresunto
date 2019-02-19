@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
 import org.academiadecodigo.bootcamp.GameObjects.Doors.DoorType;
 import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
 import org.academiadecodigo.bootcamp.GameObjects.Items.ItemType;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public enum RoomType {
 
@@ -19,17 +20,19 @@ public enum RoomType {
     //PROPERTIES
     private Item[] items;
     private Door[] doors;
+    private Picture pic;
 
 
     //CONSTRUCTOR
     //rooms with 3 items and 1 door
-    RoomType(ItemType type1, ItemType type2, ItemType type3, DoorType type4) {
+    RoomType(ItemType type1, ItemType type2, ItemType type3, DoorType type4, String pic) {
         this.items = new Item[3];
         this.items[0] = new Item(type1);
         this.items[1] = new Item(type2);
         this.items[2] = new Item(type3);
         this.doors = new Door[1];
         this.doors[0] = new Door(type4);
+        this.pic = new Picture(pic);
     }
 
     //rooms with 3 items and 2 doors
