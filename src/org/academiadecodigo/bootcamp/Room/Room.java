@@ -76,8 +76,8 @@ public class Room {
                     return;
                 }
             } else {
-                this.isShowing = false;
                 items[i].showInteraction(items[i], this.isShowing);
+                this.isShowing = false;
                 System.out.println("interact delete. Boolean: " + this.isShowing );
                 return;
             }
