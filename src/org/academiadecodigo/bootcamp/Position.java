@@ -13,7 +13,6 @@ public class Position {
     //PROPERTIES
     private int col;
     private int row;
-    private Room room;
 
 
 
@@ -94,7 +93,6 @@ public class Position {
                 ", PADDING=" + PADDING +
                 ", col=" + col +
                 ", row=" + row +
-                ", room=" + room +
                 '}';
     }
 }

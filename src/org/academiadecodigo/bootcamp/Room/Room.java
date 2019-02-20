@@ -70,15 +70,16 @@ public class Room {
             if (!isShowing) {
 
                 if (et.getPos().equals(items[i].getPos())) {
-                    items[i].showInteraction(items[i], isShowing);
-                    System.out.println("Interacting 2");
-                    isShowing = true;
-                    System.out.println("Interact show");
+                    items[i].showInteraction(items[i], this.isShowing);
+                    this.isShowing = true;
+                    System.out.println("Interact show. Boolean: " + this.isShowing );
+                    return;
                 }
             } else {
-                items[i].showInteraction(items[i], isShowing);
-                isShowing = false;
-                System.out.println("interact delete");
+                this.isShowing = false;
+                items[i].showInteraction(items[i], this.isShowing);
+                System.out.println("interact delete. Boolean: " + this.isShowing );
+                return;
             }
         }
 
