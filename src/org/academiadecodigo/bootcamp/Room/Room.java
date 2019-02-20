@@ -23,8 +23,6 @@ public class Room {
     public Room(RoomType type) {
         this.type = type;
 
-        et = new ET(6,2);
-
         pos = new Position(PADDING, PADDING);
 
         items = new GameObject[type.getDoors().length + type.getItems().length];
@@ -34,7 +32,7 @@ public class Room {
         for (int i = 0; i < type.getDoors().length; i++) {
             items[index] = type.getDoors()[i];
             System.out.println("Index: " + index + " Door: " + items[index]);
-            index ++;
+            index++;
         }
 
         for (int i = 0; i < type.getItems().length; i++) {
@@ -47,10 +45,20 @@ public class Room {
         scenery = new Picture(pos.PADDING, pos.PADDING, "dissection-room.jpeg");
         scenery.draw();
 
+        et = new ET(0, 0);
+        et.move(6, 2);
+        et.show();
+
     }
 
 
     //METHODS
+
+
+    public ET getEt() {
+        return et;
+    }
+
     public void interact() {
         for (int i = 0; i < items.length; i++) {
             System.out.println("Interacting");

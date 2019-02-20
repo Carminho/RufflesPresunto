@@ -27,9 +27,7 @@ public class Game implements KeyboardHandler {
         controlKeys();
         createRooms();
         currentRoom = new Room(RoomType.DISSECTION_CELL);
-        et = new ET(0, 0);
-        et.move(6, 2);
-        et.show();
+
     }
 
 
@@ -133,16 +131,16 @@ public class Game implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent) {
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_LEFT:
-                et.goLeft();
+                currentRoom.getEt().goLeft();
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                et.goRight();
+                currentRoom.getEt().goRight();
                 break;
             case KeyboardEvent.KEY_UP:
-                et.goUp();
+                currentRoom.getEt().goUp();
                 break;
             case KeyboardEvent.KEY_DOWN:
-                et.goDown();
+                currentRoom.getEt().goDown();
                 break;
             case KeyboardEvent.KEY_SPACE:
                 currentRoom.interact();
