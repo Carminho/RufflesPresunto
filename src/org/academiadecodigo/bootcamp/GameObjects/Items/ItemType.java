@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public enum ItemType {
 
-    DEAD_ET_BED1(3,1,"Doctor Note: \n Remember to burn the paper with the teleporter code, or at least take it out of my desk."),   // alterar posição para (3,1,...)
+    DEAD_ET_BED1(3,1,"Doctor Note: \n Remember to burn the paper with the teleporter code, or at least take it out of my desk."),
     DEAD_ET_BED2(3,2,"Doctor Note: \n Remember to burn the paper with the teleporter code, or at least take it out of my desk."),
     DEAD_ET_BED3(3,3,"Doctor Note: \n Remember to burn the paper with the teleporter code, or at least take it out of my desk."),
     DESK1(0,6,"Doctor note: \n Code number: 7 \n Burn after memorizing, same with the paper with the position of this digit on the code."),

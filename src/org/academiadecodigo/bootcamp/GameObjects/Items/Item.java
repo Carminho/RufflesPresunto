@@ -30,20 +30,10 @@ public class Item extends GameObject {
         return null;
     }
 
-    @Override
-    public void showInteraction(GameObject type, boolean isShowing) {
 
-        Rectangle r = new Rectangle(2 * getPos().CELL_SIZE,3 * getPos().CELL_SIZE, 6 *getPos().CELL_SIZE, 4 * getPos().CELL_SIZE);
-        r.setColor(Color.WHITE);
-        if (!isShowing) {
-            r.fill();
-            //Text t = new Text(type.getMessage());
-            System.out.println("ShowInteraction show. Boolean: " + isShowing);
-        }else{
-            r.delete();
-            System.out.println("ShowInteraction delete. Boolean: " + isShowing );
-        }
-    }
+    /*public void showInteraction(GameObject type, boolean isShowing) {
+
+    }*/
 
 }
 

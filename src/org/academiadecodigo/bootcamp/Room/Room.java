@@ -3,7 +3,9 @@ package org.academiadecodigo.bootcamp.Room;
 import org.academiadecodigo.bootcamp.ET;
 import org.academiadecodigo.bootcamp.GameObjects.GameObject;
 import org.academiadecodigo.bootcamp.Position;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Room {
@@ -17,18 +19,23 @@ public class Room {
     private GameObject[] items;
     private RoomType type;
     private Picture scenery;
-    private boolean isShowing;
+    private Rectangle box;
+    private Text text;
+    private boolean textBox;
 
 
     //CONSTRUCTOR
     public Room(RoomType type) {
         this.type = type;
 
-        isShowing = false;
-
         pos = new Position(PADDING, PADDING);
 
         items = new GameObject[type.getDoors().length + type.getItems().length];
+
+        box = new Rectangle(2 * pos.CELL_SIZE, 3 * pos.CELL_SIZE, 6 * pos.CELL_SIZE, 4 * pos.CELL_SIZE);
+        text = new Text(2 * pos.CELL_SIZE, 3 * pos.CELL_SIZE, "bla bla");
+        scenery = new Picture(pos.PADDING, pos.PADDING, "dissection-room.jpeg");
+        scenery.draw();
 
         int index = 0;
 
@@ -45,8 +52,7 @@ public class Room {
         }
 
 
-        scenery = new Picture(pos.PADDING, pos.PADDING, "dissection-room.jpeg");
-        scenery.draw();
+
 
         et = new ET(0, 0);
         et.move(6, 2);
@@ -63,6 +69,41 @@ public class Room {
     }
 
     public void interact() {
+        for (int i = 0; i < items.length; i++) {
+            if (!textBox) {
+                if (et.getPos().equals(items[i].getPos())) {
+                    showTextBox();
+                    textBox = true;
+                    return;
+                }
+            }
+            if (textBox) {
+                hideTextBox();
+                textBox = false;
+                return;
+            }
+        }
+    }
+
+
+    private void showTextBox () {
+        box.fill();
+        box.setColor(Color.WHITE);
+        text.draw();
+        text.setColor(Color.BLACK);
+    }
+
+    private void hideTextBox () {
+        box.delete();
+        text.delete();
+    }
+
+}
+
+
+
+    /*
+        public void interact () {
         for (int i = 0; i < items.length; i++) {
             System.out.println("Interacting");
             System.out.println("ET position: " + et.getPos());
@@ -85,3 +126,4 @@ public class Room {
 
     }
 }
+*/
