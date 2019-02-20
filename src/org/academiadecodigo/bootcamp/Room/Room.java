@@ -17,11 +17,14 @@ public class Room {
     private GameObject[] items;
     private RoomType type;
     private Picture scenery;
+    private boolean isShowing;
 
 
     //CONSTRUCTOR
     public Room(RoomType type) {
         this.type = type;
+
+        isShowing = false;
 
         pos = new Position(PADDING, PADDING);
 
@@ -64,12 +67,21 @@ public class Room {
             System.out.println("Interacting");
             System.out.println("ET position: " + et.getPos());
             System.out.println("item " + i + " position :" + items[i].getPos());
-            if (et.getPos().equals(items[i].getPos())) {
-                items[i].showInteraction(items[i]);
-                System.out.println("Interacting 2");
+            if (!isShowing) {
+
+                if (et.getPos().equals(items[i].getPos())) {
+                    items[i].showInteraction(items[i], isShowing);
+                    isShowing = true;
+                    System.out.println("Interacting 2");
+                }
+            } else {
+
+                if (et.getPos().equals(items[i].getPos())) {
+                    items[i].showInteraction(items[i], isShowing);
+                    isShowing = false;
+                }
             }
         }
+
     }
-
-
 }

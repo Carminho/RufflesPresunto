@@ -30,7 +30,7 @@ public abstract class GameObject {
 
 
 
-    public abstract void showInteraction (GameObject type);
+    public abstract void showInteraction (GameObject type, boolean isShowing);
 
 
     @Override

@@ -33,7 +33,7 @@ public class Door extends GameObject {
         return "something went wrong! - Door";
     }
 
-    public void showInteraction (GameObject type){
+    public void showInteraction (GameObject type, boolean isShowing){
 
     }
 
