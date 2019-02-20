@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.GameObjects.Items;
 
 import org.academiadecodigo.bootcamp.GameObjects.GameObject;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 
@@ -32,7 +33,8 @@ public class Item extends GameObject {
     @Override
     public void showInteraction(GameObject type) {
 
-        Rectangle r = new Rectangle(2 * 60,3 * 60, 6 *60, 4 * 60);
+        Rectangle r = new Rectangle(2 * getPos().CELL_SIZE,3 * getPos().CELL_SIZE, 6 *getPos().CELL_SIZE, 4 * getPos().CELL_SIZE);
+        r.setColor(Color.WHITE);
         r.fill();
         //Text t = new Text(type.getMessage());
 
