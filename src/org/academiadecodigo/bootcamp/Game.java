@@ -13,8 +13,7 @@ public class Game implements KeyboardHandler {
     //PROPERTIES
     private Room[] rooms;
     private Room currentRoom;
-    //apagar, not being used-
-    private ET et;
+
 
 
     //CONSTRUCTOR

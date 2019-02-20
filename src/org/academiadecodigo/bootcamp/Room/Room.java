@@ -71,15 +71,14 @@ public class Room {
 
                 if (et.getPos().equals(items[i].getPos())) {
                     items[i].showInteraction(items[i], isShowing);
-                    isShowing = true;
                     System.out.println("Interacting 2");
+                    isShowing = true;
+                    System.out.println("Interact show");
                 }
             } else {
-
-                if (et.getPos().equals(items[i].getPos())) {
-                    items[i].showInteraction(items[i], isShowing);
-                    isShowing = false;
-                }
+                items[i].showInteraction(items[i], isShowing);
+                isShowing = false;
+                System.out.println("interact delete");
             }
         }
 

@@ -38,8 +38,10 @@ public class Item extends GameObject {
         if (!isShowing) {
             r.fill();
             //Text t = new Text(type.getMessage());
+            System.out.println("ShowInteraction show");
         }else{
             r.delete();
+            System.out.println("ShowInteraction delete");
         }
     }
 
