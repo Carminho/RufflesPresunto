@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public enum ItemType {
 
-    DEAD_ET_BED1(6,2,"Note: the code position is somewhere in those drawers."),   // alterar posição para (3,1,...)
+    DEAD_ET_BED1(3,1,"Note: the code position is somewhere in those drawers."),   // alterar posição para (3,1,...)
     DEAD_ET_BED2(3,2,"Note: the code position is somewhere in those drawers."),
     DEAD_ET_BED3(3,3,"Note: the code position is somewhere in those drawers."),
     DESK1(0,6,"Code number: 7"),
