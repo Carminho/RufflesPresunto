@@ -15,8 +15,7 @@ public class Door extends GameObject {
     public Door (DoorType type){
         super(type.getPos().getCol(), type.getPos().getRow());
         this.type = type;
-}
-
+    }
 
 
 //METHODS
@@ -26,16 +25,12 @@ public class Door extends GameObject {
 
 
     @Override
-    public String getMessage (GameObject type){
-        if(type.getClass() == Door.class) {
-            return ((Door)type).type.getMessage();
+    public String getMessage(GameObject door) {
+        if (door.getClass() == Door.class){
+            return ((Door)door).type.getMessage();
         }
-        return "something went wrong! - Door";
+        return "something went wrong! - class Door";
     }
-
-    /*public void showInteraction (GameObject type, boolean isShowing){
-
-    }*/
 
 
 }

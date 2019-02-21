@@ -4,7 +4,7 @@ import org.academiadecodigo.bootcamp.Position;
 
 public enum DoorType {
 
-    ONE_TWO(1,1,"Entering Security Room..."),
+    ONE_TWO(9,5,"Entering Security Room..."),
     TWO_ONE(1,1,"Entering Dissection Cell..."),
     TWO_THREE(1,1,"Entering Lobby..."),
     THREE_TWO(1,1,"Entering Security Room..."),
@@ -26,7 +26,7 @@ public enum DoorType {
 //CONSTRUCTOR
     DoorType (int col, int row, String message){
         pos = new Position(col, row);
-        System.out.println(message);
+        this.message = message;
     }
 
 

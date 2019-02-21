@@ -33,7 +33,7 @@ public class Room {
         items = new GameObject[type.getDoors().length + type.getItems().length];
 
         box = new Rectangle(2 * pos.CELL_SIZE, 3 * pos.CELL_SIZE, 6 * pos.CELL_SIZE, 4 * pos.CELL_SIZE);
-        text = new Text(2 * pos.CELL_SIZE, 3 * pos.CELL_SIZE, "bla bla");
+
         scenery = new Picture(pos.PADDING, pos.PADDING, "dissection-room.jpeg");
         scenery.draw();
 
@@ -72,6 +72,7 @@ public class Room {
         for (int i = 0; i < items.length; i++) {
             if (!textBox) {
                 if (et.getPos().equals(items[i].getPos())) {
+                    text = new Text(3 * pos.CELL_SIZE, 4 * pos.CELL_SIZE, items[i].getMessage(items[i]));
                     showTextBox();
                     textBox = true;
                     return;

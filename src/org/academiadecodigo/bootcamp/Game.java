@@ -36,11 +36,9 @@ public class Game implements KeyboardHandler {
     }
 
 
-    //este método é para alterar. Deve ser criada apenas a primeira room
     private Room[] createRooms() {
         for (int i = 0; i < rooms.length; i++) {
             rooms[i] = new Room(RoomType.values()[i]);
-            System.out.println("A " + RoomType.values()[i] + " was created");
         }
         return rooms;
     }
