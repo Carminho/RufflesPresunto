@@ -8,13 +8,13 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public enum RoomType {
 
-    DISSECTION_CELL(ItemType.DEAD_ET_BED, ItemType.DRAWER, ItemType.DESK, DoorType.ONE_TWO,"dissection-room.jpeg",1,1),
-    SECURITY(ItemType.KEY, ItemType.SAFE, ItemType.CARPET, DoorType.TWO_ONE, DoorType.TWO_THREE,"dissection-room.jpeg",1,1),
-    LOBBY(ItemType.TABLE, DoorType.THREE_TWO, DoorType.THREE_FOUR, DoorType.THREE_FIVE, DoorType.THREE_SIX,"dissection-room.jpeg",1,1),
-    MEETING_ROOM(ItemType.CEO, ItemType.DEADBODY, DoorType.FOUR_THREE,"dissection-room.jpeg",1,1),
-    LAB(ItemType.COMPUTER, DoorType.FIVE_THREE,"dissection-room.jpeg",1,1),
-    WAREHOUSE(ItemType.ELVIS, ItemType.BIKE, ItemType.TLP, DoorType.SIX_THREE,"dissection-room.jpeg",1,1),
-    EGGXIT(ItemType.ET_GAME_DISK,"dissection-room.jpeg",1,1);
+    DISSECTION_CELL(ItemType.DEAD_ET_BED1, ItemType.DEAD_ET_BED2, ItemType.DEAD_ET_BED3, ItemType.DRAWER1, ItemType.DRAWER2, ItemType.DRAWER3, ItemType.DRAWER4, ItemType.DESK1, ItemType.DESK2, ItemType.DESK3, ItemType.DESK4, DoorType.ONE_TWO, "dissection-room.jpeg", 1, 1),
+    SECURITY(ItemType.KEY, ItemType.SAFE, ItemType.CARPET, DoorType.TWO_ONE, DoorType.TWO_THREE, "security.jpeg", 1, 1),
+    LOBBY(ItemType.TABLE, DoorType.THREE_TWO, DoorType.THREE_FOUR, DoorType.THREE_FIVE, DoorType.THREE_SIX, "dissection-room.jpeg", 1, 1),
+    MEETING_ROOM(ItemType.CEO, ItemType.DEADBODY, DoorType.FOUR_THREE, "dissection-room.jpeg", 1, 1),
+    LAB(ItemType.COMPUTER, DoorType.FIVE_THREE, "dissection-room.jpeg", 1, 1),
+    WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP, DoorType.SIX_THREE, "dissection-room.jpeg", 1, 1),
+    EGGXIT(ItemType.ET_GAME_DISK, "dissection-room.jpeg", 1, 1);
 
 
     //PROPERTIES
@@ -25,13 +25,21 @@ public enum RoomType {
 
     //CONSTRUCTOR
     //rooms with 3 items and 1 door
-    RoomType(ItemType type1, ItemType type2, ItemType type3, DoorType type4, String pic, int col, int row) {
-        this.items = new Item[3];
+    RoomType(ItemType type1, ItemType type2, ItemType type3, ItemType type4, ItemType type5, ItemType type6, ItemType type7, ItemType type8, ItemType type9, ItemType type10, ItemType type11, DoorType type12, String pic, int col, int row) {
+        this.items = new Item[11];
         this.items[0] = new Item(type1);
         this.items[1] = new Item(type2);
         this.items[2] = new Item(type3);
+        this.items[3] = new Item(type4);
+        this.items[4] = new Item(type5);
+        this.items[5] = new Item(type6);
+        this.items[6] = new Item(type7);
+        this.items[7] = new Item(type8);
+        this.items[8] = new Item(type9);
+        this.items[9] = new Item(type10);
+        this.items[10] = new Item(type11);
         this.doors = new Door[1];
-        this.doors[0] = new Door(type4);
+        this.doors[0] = new Door(type12);
         this.pic = new Picture(col, row, pic);
     }
 
@@ -93,5 +101,9 @@ public enum RoomType {
 
     public Door[] getDoors() {
         return doors;
+    }
+
+    public Picture getPic() {
+        return pic;
     }
 }

@@ -1,20 +1,17 @@
 package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.Room.Direction;
-import org.academiadecodigo.bootcamp.Room.Room;
 
 public class Position {
 
     public final int MAX_COL = 9;
     public final int MAX_ROW = 9;
-    public final int CELL_SIZE = 60;
-    public final int PADDING = 10;
+    public static final int CELL_SIZE = 60;
+    public static final int PADDING = 10;
 
     //PROPERTIES
     private int col;
     private int row;
-    private Room room;
-
 
 
     //CONSTRUCTOR
@@ -82,5 +79,18 @@ public class Position {
     // Method to compare two positions for interaction.
     public boolean equals(Position pos) {
         return this.col == pos.getCol() && this.row == pos.getRow();
+    }
+
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "MAX_COL=" + MAX_COL +
+                ", MAX_ROW=" + MAX_ROW +
+                ", CELL_SIZE=" + CELL_SIZE +
+                ", PADDING=" + PADDING +
+                ", col=" + col +
+                ", row=" + row +
+                '}';
     }
 }

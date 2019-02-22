@@ -4,37 +4,26 @@ import org.academiadecodigo.bootcamp.GameObjects.GameObject;
 
 public class Item extends GameObject {
 
-//PROPERTIES
+    //PROPERTIES
     private ItemType type;
 
 
-
-//CONSTRUCTOR
-    public Item (ItemType type){
+    //CONSTRUCTOR
+    public Item(ItemType type) {
         super(type.getPos().getCol(), type.getPos().getRow());
         this.type = type;
     }
 
 
-
 //METHODS
-    public ItemType getType(){
-        return type;
-    }
-
     @Override
-    public String getMessage (GameObject type){
-        if(type.getClass() == Item.class) {
-            return ((Item)type).type.getMessage();
+    public String getImage(GameObject item) {
+        if (item.getClass() == Item.class) {
+            return ((Item) item).type.getImage();
         }
-        return "something went wrong! - Item";
+        return "something went wrong!";
     }
 
-
-    /*public void showInteraction (GameObject type){
-
-        }
-    */
 }
 
 
