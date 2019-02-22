@@ -1,16 +1,15 @@
 package org.academiadecodigo.bootcamp.Room;
 
 import org.academiadecodigo.bootcamp.ET;
+import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
 import org.academiadecodigo.bootcamp.GameObjects.GameObject;
+import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
 import org.academiadecodigo.bootcamp.Position;
-import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Room {
-
-    private final int PADDING = 10;
 
 
     //PROPERTIES
@@ -21,14 +20,17 @@ public class Room {
     private Picture scenery;
     private Rectangle box;
     private Text text;
-    private boolean textBox;
+    private boolean isShowing;
+    private Picture picture;
+
+
 
 
     //CONSTRUCTOR
     public Room(RoomType type) {
         this.type = type;
 
-        pos = new Position(PADDING, PADDING);
+        pos = new Position(Position.PADDING, Position.PADDING);
 
         items = new GameObject[type.getDoors().length + type.getItems().length];
 
@@ -53,9 +55,7 @@ public class Room {
 
 
 
-
-        et = new ET(0, 0);
-        et.move(6, 2);
+        et = new ET(6, 2);
         et.show();
 
     }
@@ -70,18 +70,34 @@ public class Room {
 
     public void interact() {
         for (int i = 0; i < items.length; i++) {
-            if (!textBox) {
-                if (et.getPos().equals(items[i].getPos())) {
-                    text = new Text(3 * pos.CELL_SIZE, 4 * pos.CELL_SIZE, items[i].getMessage(items[i]));
-                    showTextBox();
-                    textBox = true;
-                    return;
+
+            if (et.getPos().equals(items[i].getPos())) {
+
+                if (items[i].getClass() == Item.class) {
+
+                    if (!isShowing) {
+                        picture = new Picture(2 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, items[i].getImage(items[i]));
+
+                        picture.draw();
+                        isShowing = true;
+                        System.out.println("draw");
+                    } else {
+
+                        picture.delete();
+                        isShowing = false;
+                        System.out.println("delete");
+                    }
+
+
+                } else {
+                    picture = new Picture(Position.PADDING, Position.PADDING, items[i].getImage(items[i]));
+                    picture.draw();
+                    if (items[i].getClass() == Door.class) {
+                        ET et = new ET(((Door) items[i]).getType().getEtCol(), ((Door) items[i]).getType().getEtRow());
+                        this.et = et;
+                        et.show();
+                    }
                 }
-            }
-            if (textBox) {
-                hideTextBox();
-                textBox = false;
-                return;
             }
         }
     }
@@ -127,4 +143,4 @@ public class Room {
 
     }
 }
-*/
+

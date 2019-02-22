@@ -7,11 +7,13 @@ import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class Item extends GameObject {
 
-//PROPERTIES
+    //PROPERTIES
     private ItemType type;
 
 
-//CONSTRUCTOR
+
+    //CONSTRUCTOR
+
     public Item(ItemType type) {
         super(type.getPos().getCol(), type.getPos().getRow());
         this.type = type;
@@ -19,19 +21,14 @@ public class Item extends GameObject {
 
 
 //METHODS
-    public ItemType getType() {
-        return type;
-    }
-
 
     @Override
-    public String getMessage(GameObject item) {
-        if (item.getClass() == Item.class){
-            return ((Item)item).type.getMessage();
+    public String getImage(GameObject item) {
+        if (item.getClass() == Item.class) {
+            return ((Item) item).type.getImage();
         }
-        return "something went whrong!";
+        return "something went wrong!";
     }
-
 
 }
 

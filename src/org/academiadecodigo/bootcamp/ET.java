@@ -77,6 +77,7 @@ public class ET {
     }
 
     public void show() {
+        pic.translate(pos.getCol() * Position.CELL_SIZE, pos.getRow() * Position.CELL_SIZE);
         pic.draw();
     }
 

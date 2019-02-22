@@ -11,22 +11,13 @@ public class Game implements KeyboardHandler {
 
 
     //PROPERTIES
-    private Room[] rooms;
     private Room currentRoom;
     private Keyboard kb;
 
 
 
-    //CONSTRUCTOR
-    public Game() {
-        rooms = new Room[RoomType.values().length];
-    }
-
-
-
     //METHODS
     public void start() {
-        createRooms();
         currentRoom = new Room(RoomType.DISSECTION_CELL);
         createControlKeys();
     }
@@ -38,15 +29,7 @@ public class Game implements KeyboardHandler {
     }
 
 
-    private Room[] createRooms() {
-        for (int i = 0; i < rooms.length; i++) {
-            rooms[i] = new Room(RoomType.values()[i]);
-        }
-        return rooms;
-    }
-
-
-    public void createControlKeys () {
+    public void createControlKeys() {
         kb = new Keyboard(this);
 
         addEvent(KeyboardEvent.KEY_LEFT, KeyboardEventType.KEY_PRESSED);
@@ -67,8 +50,7 @@ public class Game implements KeyboardHandler {
     }
 
 
-
-    public void addEvent (int key,KeyboardEventType type){
+    public void addEvent(int key, KeyboardEventType type) {
         KeyboardEvent event = new KeyboardEvent();
         event.setKey(key);
         event.setKeyboardEventType(type);

@@ -8,13 +8,13 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public enum RoomType {
 
-    DISSECTION_CELL(ItemType.DEAD_ET_BED1, ItemType.DEAD_ET_BED2, ItemType.DEAD_ET_BED3,ItemType.DRAWER1,ItemType.DRAWER2,ItemType.DRAWER3,ItemType.DRAWER4, ItemType.DESK1, ItemType.DESK2, ItemType.DESK3, ItemType.DESK4, DoorType.ONE_TWO,"dissection-room.jpeg",1,1),
-    SECURITY(ItemType.KEY, ItemType.SAFE, ItemType.CARPET, DoorType.TWO_ONE, DoorType.TWO_THREE,"security.jpeg",1,1),
-    LOBBY(ItemType.TABLE, DoorType.THREE_TWO, DoorType.THREE_FOUR, DoorType.THREE_FIVE, DoorType.THREE_SIX,"dissection-room.jpeg",1,1),
-    MEETING_ROOM(ItemType.CEO, ItemType.DEADBODY, DoorType.FOUR_THREE,"dissection-room.jpeg",1,1),
-    LAB(ItemType.COMPUTER, DoorType.FIVE_THREE,"dissection-room.jpeg",1,1),
-    WAREHOUSE(ItemType.ELVIS,ItemType.ELVIS,ItemType.ELVIS,ItemType.ELVIS,ItemType.ELVIS,ItemType.ELVIS,ItemType.ELVIS,ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP, DoorType.SIX_THREE,"dissection-room.jpeg",1,1),
-    EGGXIT(ItemType.ET_GAME_DISK,"dissection-room.jpeg",1,1);
+    DISSECTION_CELL(ItemType.DEAD_ET_BED1, ItemType.DEAD_ET_BED2, ItemType.DEAD_ET_BED3, ItemType.DRAWER1, ItemType.DRAWER2, ItemType.DRAWER3, ItemType.DRAWER4, ItemType.DESK1, ItemType.DESK2, ItemType.DESK3, ItemType.DESK4, DoorType.ONE_TWO, "dissection-room.jpeg", 1, 1),
+    SECURITY(ItemType.KEY, ItemType.SAFE, ItemType.CARPET, DoorType.TWO_ONE, DoorType.TWO_THREE, "security.jpeg", 1, 1),
+    LOBBY(ItemType.TABLE, DoorType.THREE_TWO, DoorType.THREE_FOUR, DoorType.THREE_FIVE, DoorType.THREE_SIX, "dissection-room.jpeg", 1, 1),
+    MEETING_ROOM(ItemType.CEO, ItemType.DEADBODY, DoorType.FOUR_THREE, "dissection-room.jpeg", 1, 1),
+    LAB(ItemType.COMPUTER, DoorType.FIVE_THREE, "dissection-room.jpeg", 1, 1),
+    WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP, DoorType.SIX_THREE, "dissection-room.jpeg", 1, 1),
+    EGGXIT(ItemType.ET_GAME_DISK, "dissection-room.jpeg", 1, 1);
 
 
     //PROPERTIES

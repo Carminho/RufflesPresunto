@@ -1,14 +1,13 @@
 package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.Room.Direction;
-import org.academiadecodigo.bootcamp.Room.Room;
 
 public class Position {
 
     public final int MAX_COL = 9;
     public final int MAX_ROW = 9;
-    public final int CELL_SIZE = 60;
-    public final int PADDING = 10;
+    public static final int CELL_SIZE = 60;
+    public static final int PADDING = 10;
 
     //PROPERTIES
     private int col;
