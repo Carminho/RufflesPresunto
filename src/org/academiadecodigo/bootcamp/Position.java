@@ -14,6 +14,7 @@ public class Position {
     private int row;
 
 
+
     //CONSTRUCTOR
     public Position(int col, int row) {
         this.col = col;

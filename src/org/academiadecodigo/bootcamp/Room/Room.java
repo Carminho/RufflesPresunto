@@ -25,6 +25,7 @@ public class Room {
 
 
 
+
     //CONSTRUCTOR
     public Room(RoomType type) {
         this.type = type;
@@ -53,6 +54,7 @@ public class Room {
         }
 
 
+
         et = new ET(6, 2);
         et.show();
 
@@ -68,6 +70,7 @@ public class Room {
 
     public void interact() {
         for (int i = 0; i < items.length; i++) {
+
             if (et.getPos().equals(items[i].getPos())) {
 
                 if (items[i].getClass() == Item.class) {
@@ -100,6 +103,44 @@ public class Room {
     }
 
 
+    private void showTextBox () {
+        box.fill();
+        box.setColor(Color.WHITE);
+        text.draw();
+        text.setColor(Color.BLACK);
+    }
+
+    private void hideTextBox () {
+        box.delete();
+        text.delete();
+    }
+
 }
 
+
+
+    /*
+        public void interact () {
+        for (int i = 0; i < items.length; i++) {
+            System.out.println("Interacting");
+            System.out.println("ET position: " + et.getPos());
+            System.out.println("item " + i + " position :" + items[i].getPos());
+            if (!isShowing) {
+
+                if (et.getPos().equals(items[i].getPos())) {
+                    items[i].showInteraction(items[i], this.isShowing);
+                    this.isShowing = true;
+                    System.out.println("Interact show. Boolean: " + this.isShowing );
+                    return;
+                }
+            } else {
+                items[i].showInteraction(items[i], this.isShowing);
+                this.isShowing = false;
+                System.out.println("interact delete. Boolean: " + this.isShowing );
+                return;
+            }
+        }
+
+    }
+}
 

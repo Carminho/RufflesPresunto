@@ -23,12 +23,10 @@ public class Game implements KeyboardHandler {
     }
 
 
+
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-
-
-
 
 
     public void createControlKeys() {
@@ -58,6 +56,7 @@ public class Game implements KeyboardHandler {
         event.setKeyboardEventType(type);
         kb.addEventListener(event);
     }
+
 
 
     @Override

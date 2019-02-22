@@ -26,6 +26,7 @@ public class Door extends GameObject {
         return "something went wrong! - class Door";
     }
 
+
     public DoorType getType() {
         return type;
     }

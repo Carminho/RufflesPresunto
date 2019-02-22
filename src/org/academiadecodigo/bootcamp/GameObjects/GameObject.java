@@ -28,7 +28,6 @@ public abstract class GameObject {
 
     //public abstract void getImage (GameObject type);
 
-
     @Override
     public String toString() {
         return "GameObject{" +

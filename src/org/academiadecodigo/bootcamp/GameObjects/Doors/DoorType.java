@@ -17,6 +17,7 @@ public enum DoorType {
 
 
     //PROPERTIES
+
     private Position pos;
     private String image;
     private int etCol;
@@ -29,6 +30,7 @@ public enum DoorType {
         this.etCol = etCol;
         this.etRow = etRow;
         this.image = imagePath;
+
     }
 
 

@@ -29,6 +29,7 @@ public enum ItemType {
 
 
     //PROPERTIES
+
     private Position pos;
     private String image;
 
