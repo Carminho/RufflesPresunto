@@ -15,22 +15,11 @@ public enum ItemType {
     DRAWER2(7, 9, "notes/drawer.png"),
     DRAWER3(8, 8, "notes/drawer.png"),
     DRAWER4(8, 9, "notes/drawer.png"),
-    KEY1(4, 2, "notes/key.png"),
-    KEY2(5, 2, "notes/key.png"),
+    KEY(5, 2, "notes/key.png"),
     SAFE1(7, 9, "notes/safe.png"),
     SAFE2(8, 9, "notes/safe.png"),
-    CARPET1(3, 4, "notes/carpet.png"),
-    CARPET2(3, 5, "notes/carpet.png"),
-    CARPET3(3, 6, "notes/carpet.png"),
-    CARPET4(4, 4, "notes/carpet.png"),
-    CARPET5(4, 5, "notes/carpet.png"),
-    CARPET6(4, 6, "notes/carpet.png"),
-    CARPET7(5, 4, "notes/carpet.png"),
-    CARPET8(5, 5, "notes/carpet.png"),
-    CARPET9(5, 6, "notes/carpet.png"),
-    CARPET10(6, 4, "notes/carpet.png"),
-    CARPET11(6, 5, "notes/carpet.png"),
-    CARPET12(6, 6, "notes/carpet.png"),
+    CARPET1(4, 5, "notes/carpet.png"),
+    CARPET2(5, 5, "notes/carpet.png"),
     TABLE(1, 2, "notes/table.png"),
     CEO(1, 2, "notes/CEO.png"),
     DEADBODY(1, 2, "notes/deadBody.png"),
@@ -46,7 +35,6 @@ public enum ItemType {
     private String image;
 
 
-
     //CONSTRUCTOR
     ItemType(int col, int row, String imagePath) {
         pos = new Position(col, row);
@@ -58,6 +46,7 @@ public enum ItemType {
     public Position getPos() {
         return pos;
     }
+
     public String getImage() {
         return image;
     }

@@ -81,6 +81,10 @@ public class ET {
     }
 
 
+    public Picture getPic (){
+        return pic;
+    }
+
     @Override
     public String toString() {
         return "ET{" +

@@ -15,13 +15,11 @@ public class Room {
 
     //PROPERTIES
     private Position pos;
-    //private ET et;
     private GameObject[] items;
     private RoomType type;
     private boolean isShowing;
     private Picture picture;
     private Picture scenery;
-    //private Game game;
 
 
     //CONSTRUCTOR
@@ -36,19 +34,10 @@ public class Room {
         scenery.draw();
 
         createGameObjects();
-
-        //game = new Game();
-
-        /*if (type == RoomType.DISSECTION_CELL) {
-            et = new ET(INIT_ET_COL, INIT_ET_ROW);
-            et.show();
-        }*/
-
     }
 
+
     //METHODS
-
-
     private void createGameObjects() {
         int index = 0;
         for (int i = 0; i < type.getDoors().length; i++) {
@@ -62,66 +51,9 @@ public class Room {
     }
 
 
-    /*public ET getEt() {
-        return et;
-    }*/
-
-
-    /*public void interact() {
-        for (int i = 0; i < items.length; i++) {
-
-            if (isShowing) {
-                picture.delete();
-                isShowing = false;
-                return;
-            }
-            if (et.getPos().equals(items[i].getPos())) {
-                if (items[i].getClass() == Door.class) {
-                    picture = new Picture(Position.PADDING, Position.PADDING, items[i].getImage(items[i]));
-                    picture.draw();
-
-                    System.out.println("door image :" + items[i].getImage(items[i]));
-
-                    for (int j = 0; j < RoomType.values().length; j++) {
-                        if (RoomType.values()[j].getPic().equals(items[i].getImage(items[i]))) {                               //se nome da imagem de Door é = ao nome da imagem de RoomType
-                            System.out.println("room type image: " + RoomType.values()[j].getPic());
-                            System.out.println("room type to set current: " + RoomType.values()[j]);
-                            game.setCurrentRoom(RoomType.values()[j]);
-                            System.out.println("current room " + game.getCurrentRoom());
-                            ET et = new ET(((Door) items[i]).getType().getEtCol(), ((Door) items[i]).getType().getEtRow());
-                            this.et = et;
-                            et.show();
-                            return;
-                        }
-                    }
-                    return;
-                }
-
-                if (items[i].getClass() == Item.class) {
-                    picture = new Picture(2 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, items[i].getImage(items[i]));
-                    picture.draw();
-                    isShowing = true;
-                    System.out.println("current room " + game.getCurrentRoom());
-                    return;
-                }
-
-
-            }
-
-        }
-
-    }*/
 
     public GameObject[] getItems() {
         return items;
-    }
-
-    public void setItems(GameObject[] items) {
-        this.items = items;
-    }
-
-    public RoomType getType() {
-        return type;
     }
 
     public boolean isShowing() {

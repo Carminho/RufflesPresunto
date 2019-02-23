@@ -21,26 +21,12 @@ public class Game implements KeyboardHandler {
     private ET et;
 
 
-    public Game (){
-        start();
-        /*if (currentRoom.getType() == RoomType.DISSECTION_CELL) {
-            et = new ET(INIT_ET_COL, INIT_ET_ROW);
-            et.show();
-        }*/
-
-    }
-
     //METHODS
     public void start() {
         currentRoom = new Room(RoomType.DISSECTION_CELL);
         et = new ET(INIT_ET_COL, INIT_ET_ROW);
         et.show();
         createControlKeys();
-    }
-
-
-    public void setCurrentRoom(RoomType roomType) {
-        currentRoom = new Room(roomType);
     }
 
 
@@ -132,18 +118,18 @@ public class Game implements KeyboardHandler {
                 if (currentRoom.getItems()[i].getClass() == Door.class) {
                     currentRoom.setPicture(new Picture(Position.PADDING, Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
                     currentRoom.getPicture().draw();
-
-                    System.out.println("door image :" + currentRoom.getItems()[i].getImage(currentRoom.getItems()[i]));
+                    et.getPic().delete();
 
                     for (int j = 0; j < RoomType.values().length; j++) {
                         if (RoomType.values()[j].getPic().equals(currentRoom.getItems()[i].getImage(currentRoom.getItems()[i]))) {                               //se nome da imagem de Door é = ao nome da imagem de RoomType
-                            System.out.println("room type image: " + RoomType.values()[j].getPic());
-                            System.out.println("room type to set current: " + RoomType.values()[j]);
                             currentRoom = new Room(RoomType.values()[j]);
-                            System.out.println("current room " + currentRoom);
                             ET et = new ET(((Door) currentRoom.getItems()[i]).getType().getEtCol(), ((Door) currentRoom.getItems()[i]).getType().getEtRow());
+                            //ET et = new ET(0,5);
                             this.et = et;
-                            et.show();
+
+                            et.getPic().draw();
+                            et.getPic().translate(et.getPos().getCol() * Position.CELL_SIZE, et.getPos().getRow() * Position.CELL_SIZE);
+                            //et.show();
                             return;
                         }
                     }
@@ -154,7 +140,6 @@ public class Game implements KeyboardHandler {
                     currentRoom.setPicture(new Picture(2 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
                     currentRoom.getPicture().draw();
                     currentRoom.setIsShowing(true);
-                    System.out.println("current room " + currentRoom);
                     return;
                 }
 

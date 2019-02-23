@@ -4,12 +4,12 @@ import org.academiadecodigo.bootcamp.Position;
 
 public enum DoorType {
 
-    ONE_TWO(9, 5, "resources/security.jpeg", 0, 5 ),
-    TWO_ONE(0, 5, "resources/dissection-room.jpeg",9 ,5 ),
-    TWO_THREE(1, 1, "Entering Lobby...",0 ,0 ),
-    THREE_TWO(1, 1, "Entering Security Room...",0 ,0 ),
-    THREE_FOUR(1, 1, "Entering Meeting Room...",0 ,0 ),
-    FOUR_THREE(1, 1, "Entering Lobby...",0 ,0 ),
+    ONE_TWO(9, 5, "resources/security.jpeg", 0, 5),
+    TWO_ONE(0, 5, "resources/dissection-room.jpeg",9 ,5),
+    TWO_THREE(9, 5, "resources/lobby.jpeg",0 ,0 ),
+    THREE_TWO(1, 1, "resources/security.jpeg",0 ,0 ),
+    THREE_FOUR(1, 1, "resources/lab.jpeg",0 ,0 ),
+    FOUR_THREE(1, 1, "resources/lobby.jpeg",0 ,0 ),
     THREE_FIVE(1, 1, "Entering Lab...",0 ,0 ),
     FIVE_THREE(1, 1, "Entering Lobby...",0 ,0),
     THREE_SIX(1, 1, "Entering Warehouse...",0 ,0 ),
