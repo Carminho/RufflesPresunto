@@ -15,7 +15,7 @@ public enum RoomType {
     MEETING_ROOM(ItemType.CEO1, ItemType.CEO2, ItemType.CEO3, ItemType.CEO4, ItemType.DEADBODY1, ItemType.DEADBODY2, DoorType.FOUR_THREE, "resources/meeting_room.jpeg"),
     LAB(ItemType.COMPUTER1, ItemType.COMPUTER2, ItemType.COMPUTER3, ItemType.COMPUTER4, DoorType.FIVE_THREE, "resources/lab.jpeg"),
     WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP1, ItemType.TLP2, ItemType.TLP3, ItemType.TLP4, ItemType.TLP5, ItemType.TLP6, DoorType.SIX_THREE, "resources/warehouse.jpeg"),
-    EGGXIT(ItemType.ET_GAME_DISK, "dissection-room.jpeg");
+    EGGXIT(ItemType.ET_GAME_DISK, "resources/eggxit.jpeg");
 
 
     //PROPERTIES
