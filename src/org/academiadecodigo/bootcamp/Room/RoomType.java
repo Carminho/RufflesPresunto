@@ -4,18 +4,17 @@ import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
 import org.academiadecodigo.bootcamp.GameObjects.Doors.DoorType;
 import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
 import org.academiadecodigo.bootcamp.GameObjects.Items.ItemType;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import java.util.Arrays;
+
 
 public enum RoomType {
 
-    DISSECTION_CELL(ItemType.DEAD_ET_BED1, ItemType.DEAD_ET_BED2, ItemType.DEAD_ET_BED3, ItemType.DRAWER1, ItemType.DRAWER2, ItemType.DRAWER3, ItemType.DRAWER4, ItemType.DESK1, ItemType.DESK2, ItemType.DESK3, ItemType.DESK4, DoorType.ONE_TWO, "dissection-room.jpeg"),
+    DISSECTION_CELL(ItemType.DEAD_ET_BED1, ItemType.DEAD_ET_BED2, ItemType.DEAD_ET_BED3, ItemType.DRAWER1, ItemType.DRAWER2, ItemType.DRAWER3, ItemType.DRAWER4, ItemType.DESK1, ItemType.DESK2, ItemType.DESK3, ItemType.DESK4, DoorType.ONE_TWO, "resources/dissection-room.jpeg"),
     SECURITY(ItemType.KEY, ItemType.SAFE1,ItemType.SAFE2, ItemType.CARPET1,ItemType.CARPET2, DoorType.TWO_ONE, DoorType.TWO_THREE, "resources/security.jpeg"),
-    LOBBY(ItemType.TABLE, DoorType.THREE_TWO, DoorType.THREE_FOUR, DoorType.THREE_FIVE, DoorType.THREE_SIX, "dissection-room.jpeg"),
-    MEETING_ROOM(ItemType.CEO, ItemType.DEADBODY, DoorType.FOUR_THREE, "dissection-room.jpeg"),
-    LAB(ItemType.COMPUTER, DoorType.FIVE_THREE, "dissection-room.jpeg"),
-    WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP, DoorType.SIX_THREE, "dissection-room.jpeg"),
+    LOBBY(ItemType.TABLE,DoorType.THREE_TWO, DoorType.THREE_FOUR, DoorType.THREE_FIVE, DoorType.THREE_SIX, "resources/lobby.jpeg"),
+    MEETING_ROOM(ItemType.CEO, ItemType.DEADBODY, DoorType.FOUR_THREE, "resources/meeting_room.jpeg"),
+    LAB(ItemType.COMPUTER1, ItemType.COMPUTER2, ItemType.COMPUTER3, ItemType.COMPUTER4, DoorType.FIVE_THREE, "resources/lab.jpeg"),
+    WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP, DoorType.SIX_THREE, "resources/warehouse.jpeg"),
     EGGXIT(ItemType.ET_GAME_DISK, "dissection-room.jpeg");
 
 
@@ -23,7 +22,6 @@ public enum RoomType {
     private Item[] items;
     private Door[] doors;
     private String pic;
-    //private boolean isActive;    //is set as current room or not
 
 
 
@@ -81,12 +79,15 @@ public enum RoomType {
         this.pic = imagePath;
     }
 
-    //rooms with 1 item and 1 door
-    RoomType(ItemType type1, DoorType type2, String imagePath) {
-        this.items = new Item[1];
+    //rooms with 4 items and 1 door
+    RoomType(ItemType type1, ItemType type2, ItemType type3, ItemType type4, DoorType type5, String imagePath) {
+        this.items = new Item[4];
         this.items[0] = new Item(type1);
+        this.items[1] = new Item(type2);
+        this.items[2] = new Item(type3);
+        this.items[3] = new Item(type4);
         this.doors = new Door[1];
-        this.doors[0] = new Door(type2);
+        this.doors[0] = new Door(type5);
         this.pic = imagePath;
     }
 
