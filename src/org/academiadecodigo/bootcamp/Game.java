@@ -59,7 +59,6 @@ public class Game implements KeyboardHandler {
     }
 
 
-
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         switch (keyboardEvent.getKey()) {
@@ -118,7 +117,9 @@ public class Game implements KeyboardHandler {
                 currentRoom.setIsShowing(false);
                 return;
             }
+
             if (et.getPos().equals(currentRoom.getItems()[i].getPos())) {
+
                 if (currentRoom.getItems()[i].getClass() == Door.class) {
                     currentRoom.setPicture(new Picture(Position.PADDING, Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
                     currentRoom.getPicture().draw();
@@ -144,12 +145,8 @@ public class Game implements KeyboardHandler {
                     currentRoom.setIsShowing(true);
                     return;
                 }
-
-
             }
-
         }
-
     }
 
     @Override
