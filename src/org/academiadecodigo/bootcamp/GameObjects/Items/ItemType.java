@@ -45,12 +45,14 @@ public enum ItemType {
     //PROPERTIES
     private Position pos;
     private String image;
+    private boolean found;
 
 
     //CONSTRUCTOR
     ItemType(int col, int row, String imagePath) {
         pos = new Position(col, row);
         this.image = imagePath;
+        found = false;
     }
 
 
@@ -61,5 +63,21 @@ public enum ItemType {
 
     public String getImage() {
         return image;
+    }
+
+    public boolean isFound (){
+        return found;
+    }
+
+    public void setFound (){
+        found = true;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ItemType{" +
+                "found=" + found +
+                '}';
     }
 }

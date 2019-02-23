@@ -21,6 +21,9 @@ public class Item extends GameObject {
 
 
 //METHODS
+    public ItemType getType (){
+        return type;
+    }
 
     @Override
     public String getImage(GameObject item) {
