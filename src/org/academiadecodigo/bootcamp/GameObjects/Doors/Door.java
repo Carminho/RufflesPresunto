@@ -6,7 +6,6 @@ import org.academiadecodigo.bootcamp.Room.Room;
 public class Door extends GameObject {
 
     //PROPERTIES
-    private Room nextRoom;
     private DoorType type;
 
 
@@ -29,6 +28,14 @@ public class Door extends GameObject {
 
     public DoorType getType() {
         return type;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Door{" +
+                " type=" + type +
+                '}';
     }
 }
 

@@ -5,7 +5,7 @@ import org.academiadecodigo.bootcamp.Position;
 public enum DoorType {
 
     ONE_TWO(9, 5, "resources/security.jpeg", 0, 5 ),
-    TWO_ONE(1, 1, "Entering Dissection Cell...",9 ,5 ),
+    TWO_ONE(0, 5, "resources/dissection-room.jpeg",9 ,5 ),
     TWO_THREE(1, 1, "Entering Lobby...",0 ,0 ),
     THREE_TWO(1, 1, "Entering Security Room...",0 ,0 ),
     THREE_FOUR(1, 1, "Entering Meeting Room...",0 ,0 ),
@@ -22,6 +22,7 @@ public enum DoorType {
     private String image;
     private int etCol;
     private int etRow;
+
 
 
     //CONSTRUCTOR

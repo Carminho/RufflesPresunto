@@ -34,30 +34,14 @@ public class ET {
 
     public void goLeft() {
         if (pos.getCol() > 0) {
-            if (currentDirection == Direction.LEFT) {
-                pos.moveDirection(Direction.LEFT);
-                pic.translate(-(pos.CELL_SIZE), 0);
-            } else {
-                pos.moveDirection(Direction.LEFT);
-                currentDirection = Direction.LEFT;
-                pic.grow(60, 0);
-                pic.translate(-(pos.CELL_SIZE), 0);
-            }
+            moveInDirection(Direction.LEFT,-pos.CELL_SIZE,0,60,0);
         }
     }
 
 
     public void goRight() {
         if (pos.getCol() < pos.getMaxCol()) {
-            if (currentDirection == Direction.RIGHT) {
-                pos.moveDirection(Direction.RIGHT);
-                pic.translate(pos.CELL_SIZE, 0);
-            } else {
-                pos.moveDirection(Direction.RIGHT);
-                currentDirection = Direction.RIGHT;
-                pic.grow(-60, 0);
-                pic.translate(pos.CELL_SIZE, 0);
-            }
+            moveInDirection(Direction.RIGHT,pos.CELL_SIZE,0,-60,0);
         }
     }
 
@@ -69,6 +53,7 @@ public class ET {
         }
     }
 
+
     public void goDown() {
         if (pos.getRow() < pos.getMaxRow()) {
             pos.moveDirection(Direction.DOWN);
@@ -76,10 +61,25 @@ public class ET {
         }
     }
 
+
+    private void moveInDirection (Direction direction, int translateCol, int translateRow, int growCol, int growRow){
+        if (currentDirection == direction) {
+            pos.moveDirection(direction);
+            pic.translate(translateCol, translateRow);
+        } else {
+            pos.moveDirection(direction);
+            currentDirection = direction;
+            pic.grow(growCol, growRow);
+            pic.translate(translateCol, translateRow);
+        }
+    }
+
+
     public void show() {
         pic.translate(pos.getCol() * Position.CELL_SIZE, pos.getRow() * Position.CELL_SIZE);
         pic.draw();
     }
+
 
     @Override
     public String toString() {

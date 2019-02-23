@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.Room;
 
 import org.academiadecodigo.bootcamp.ET;
+import org.academiadecodigo.bootcamp.Game;
 import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
 import org.academiadecodigo.bootcamp.GameObjects.GameObject;
 import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
@@ -11,15 +12,18 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Room {
 
+    private final int INIT_ET_COL = 6;
+    private final int INIT_ET_ROW = 2;
 
     //PROPERTIES
     private Position pos;
     private ET et;
     private GameObject[] items;
     private RoomType type;
-    private Picture scenery;
     private boolean isShowing;
     private Picture picture;
+    private Game game;
+
 
 
     //CONSTRUCTOR
@@ -30,31 +34,30 @@ public class Room {
 
         items = new GameObject[type.getDoors().length + type.getItems().length];
 
-        scenery = new Picture(pos.PADDING, pos.PADDING, "dissection-room.jpeg");
+        Picture scenery = new Picture(pos.PADDING, pos.PADDING, "dissection-room.jpeg");
         scenery.draw();
 
-        int index = 0;
+        createGameObjects();
 
-        for (int i = 0; i < type.getDoors().length; i++) {
-            items[index] = type.getDoors()[i];
-            System.out.println("Index: " + index + " Door: " + items[index]);
-            index++;
-        }
-
-        for (int i = 0; i < type.getItems().length; i++) {
-            items[index] = type.getItems()[i];
-            System.out.println("Index: " + index + " Item: " + items[index]);
-            index++;
-        }
-
-
-        et = new ET(6, 2);
+        et = new ET(INIT_ET_COL, INIT_ET_ROW);
         et.show();
 
     }
 
-
     //METHODS
+
+
+    private void createGameObjects() {
+        int index = 0;
+        for (int i = 0; i < type.getDoors().length; i++) {
+            items[index] = type.getDoors()[i];
+            index++;
+        }
+        for (int i = 0; i < type.getItems().length; i++) {
+            items[index] = type.getItems()[i];
+            index++;
+        }
+    }
 
 
     public ET getEt() {
@@ -64,35 +67,40 @@ public class Room {
     public void interact() {
         for (int i = 0; i < items.length; i++) {
 
+            if (isShowing) {
+                picture.delete();
+                isShowing = false;
+                return;
+            }
             if (et.getPos().equals(items[i].getPos())) {
-
-                if (items[i].getClass() == Item.class) {
-
-                    if (!isShowing) {
-                        picture = new Picture(2 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, items[i].getImage(items[i]));
-
-                        picture.draw();
-                        isShowing = true;
-                        System.out.println("draw");
-                    } else {
-
-                        picture.delete();
-                        isShowing = false;
-                        System.out.println("delete");
-                    }
-
-
-                } else {
+                if (items[i].getClass() == Door.class) {
                     picture = new Picture(Position.PADDING, Position.PADDING, items[i].getImage(items[i]));
                     picture.draw();
-                    if (items[i].getClass() == Door.class) {
-                        ET et = new ET(((Door) items[i]).getType().getEtCol(), ((Door) items[i]).getType().getEtRow());
-                        this.et = et;
-                        et.show();
+                    ET et = new ET(((Door) items[i]).getType().getEtCol(), ((Door) items[i]).getType().getEtRow());
+                    this.et = et;
+                    et.show();
+                    /*System.out.println(items[i].getImage(items[i]));
+                    switch (items[i].getImage(items[i])){
+                        case "resources/security.jpeg"
+                    }*/
                     }
+
+                if (items[i].getClass() == Item.class) {
+                    picture = new Picture(2 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, items[i].getImage(items[i]));
+                    picture.draw();
+                    isShowing = true;
+                    return;
                 }
+
+
             }
+
         }
+
+    }
+
+    public RoomType getType() {
+        return type;
     }
 
 

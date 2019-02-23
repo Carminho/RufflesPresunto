@@ -83,15 +83,5 @@ public class Position {
     }
 
 
-    @Override
-    public String toString() {
-        return "Position{" +
-                "MAX_COL=" + MAX_COL +
-                ", MAX_ROW=" + MAX_ROW +
-                ", CELL_SIZE=" + CELL_SIZE +
-                ", PADDING=" + PADDING +
-                ", col=" + col +
-                ", row=" + row +
-                '}';
-    }
+
 }

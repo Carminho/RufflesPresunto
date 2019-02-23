@@ -4,34 +4,47 @@ import org.academiadecodigo.bootcamp.Position;
 
 public enum ItemType {
 
-    DEAD_ET_BED1(3, 1, "caio.png"),
-    DEAD_ET_BED2(3, 2, "Doctor Note: \n Remember to burn the paper with the teleporter code, or at least take it out of my desk."),
-    DEAD_ET_BED3(3, 3, "Doctor Note: \n Remember to burn the paper with the teleporter code, or at least take it out of my desk."),
-    DESK1(0, 6, "Doctor note: \n Code number: 7 \n Burn after memorizing, same with the paper with the position of this digit on the code."),
-    DESK2(0, 7, "Doctor note: \n Code number: 7 \n Burn after memorizing, same with the paper with the position of this digit on the code."),
-    DESK3(1, 6, "Doctor note: \n Code number: 7 \n Burn after memorizing, same with the paper with the position of this digit on the code."),
-    DESK4(1, 7, "Doctor note: \n Code number: 7 \n Burn after memorizing, same with the paper with the position of this digit on the code."),
-    DRAWER1(7, 8, "Doctor note: \n As i'm the most important person on the base, I got the 1st digit of the code!"),
-    DRAWER2(7, 9, "Doctor note: \n As i'm the most important person on the base, I got the 1st digit of the code!"),
-    DRAWER3(8, 8, "Doctor note: \n As i'm the most important person on the base, I got the 1st digit of the code!"),
-    DRAWER4(8, 9, "Doctor note: \n As i'm the most important person on the base, I got the 1st digit of the code!"),
-    KEY(1, 2, "Hmm... where can I use this key?"),
-    SAFE(1, 2, "Boss Note: \n Security will keep the 3rd position of the code."),
-    CARPET(1, 2, "Code number: 5"),
-    TABLE(1, 2, "There's a button here! It seems that it opens the locked door!"),
-    CEO(1, 2, "Don't forget your code number is 3, pumpkin <3 \n Love, Mommy."),
-    DEADBODY(1, 2, "You will never find out the 4th position of the code! \n Only the CEO knew that and they are all dead!"),
-    COMPUTER(1, 2, "The scientist usually uses the number of objects in this room to represent the code number on the 2nd position."),
-    ELVIS(1, 2, "Strange, Elvis didn't have this tattoo with 9 stars when he was alive... \n That is, if it's really dead this time."),
-    BIKE(1, 2, "REBMUN EDOC EHT RETNE"),
-    TLP(1, 2, "ENTER THE CODE NUMBER IN THE RIGHT ORDER"),
-    ET_GAME_DISK(1, 2, "I can't believe I'm back in this hole in Alamogordo!!!");
+    DEAD_ET_BED1(3, 1, "notes/deadEtBed.png"),
+    DEAD_ET_BED2(3, 2, "notes/deadEtBed.png"),
+    DEAD_ET_BED3(3, 3, "notes/deadEtBed.png"),
+    DESK1(0, 6, "notes/desk.png"),
+    DESK2(0, 7, "notes/desk.png"),
+    DESK3(1, 6, "notes/desk.png"),
+    DESK4(1, 7, "notes/desk.png"),
+    DRAWER1(7, 8, "notes/drawer.png"),
+    DRAWER2(7, 9, "notes/drawer.png"),
+    DRAWER3(8, 8, "notes/drawer.png"),
+    DRAWER4(8, 9, "notes/drawer.png"),
+    KEY1(4, 2, "notes/key.png"),
+    KEY2(5, 2, "notes/key.png"),
+    SAFE1(7, 9, "notes/safe.png"),
+    SAFE2(7, 9, "notes/safe.png"),
+    CARPET1(3, 4, "notes/carpet.png"),
+    CARPET2(3, 5, "notes/carpet.png"),
+    CARPET3(3, 6, "notes/carpet.png"),
+    CARPET4(4, 4, "notes/carpet.png"),
+    CARPET5(4, 5, "notes/carpet.png"),
+    CARPET6(4, 6, "notes/carpet.png"),
+    CARPET7(5, 4, "notes/carpet.png"),
+    CARPET8(5, 5, "notes/carpet.png"),
+    CARPET9(5, 6, "notes/carpet.png"),
+    CARPET10(6, 4, "notes/carpet.png"),
+    CARPET11(6, 5, "notes/carpet.png"),
+    CARPET12(6, 6, "notes/carpet.png"),
+    TABLE(1, 2, "notes/table.png"),
+    CEO(1, 2, "notes/CEO.png"),
+    DEADBODY(1, 2, "notes/deadBody.png"),
+    COMPUTER(1, 2, "notes/computer.png"),
+    ELVIS(1, 2, "notes/elvis.png"),
+    BIKE(1, 2, "notes/bike.png"),
+    TLP(1, 2, "notes/tlp.png"),
+    ET_GAME_DISK(1, 2, "notes/etGameDisk.png");
 
 
     //PROPERTIES
-
     private Position pos;
     private String image;
+
 
 
     //CONSTRUCTOR
@@ -41,14 +54,11 @@ public enum ItemType {
     }
 
 
+    //METHODS
     public Position getPos() {
         return pos;
     }
-
-
     public String getImage() {
         return image;
     }
-
-
 }

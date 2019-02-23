@@ -30,6 +30,12 @@ public class Item extends GameObject {
         return "something went wrong!";
     }
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "type=" + type +
+                '}';
+    }
 }
 
 

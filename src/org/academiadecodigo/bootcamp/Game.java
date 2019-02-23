@@ -23,9 +23,8 @@ public class Game implements KeyboardHandler {
     }
 
 
-
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
+    public void setCurrentRoom(RoomType roomType) {
+        currentRoom = new Room(roomType);
     }
 
 
