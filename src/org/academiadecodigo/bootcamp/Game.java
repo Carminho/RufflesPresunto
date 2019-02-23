@@ -2,14 +2,19 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
 import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
+import org.academiadecodigo.bootcamp.GameObjects.Items.ItemType;
 import org.academiadecodigo.bootcamp.GameObjects.Items.Teleporter;
 import org.academiadecodigo.bootcamp.Room.Room;
 import org.academiadecodigo.bootcamp.Room.RoomType;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.simplegraphics.graphics.Text;
+
 
 public class Game implements KeyboardHandler {
 
@@ -21,6 +26,8 @@ public class Game implements KeyboardHandler {
     private Keyboard kb;
     private ET et;
     private Teleporter teleporter;
+    private Rectangle box = new Rectangle(2.5 * Position.CELL_SIZE + Position.PADDING, 4 * Position.CELL_SIZE + Position.PADDING, 300, 120);
+    private Text text = new Text(3.3 * Position.CELL_SIZE + Position.PADDING, 4.8 * Position.CELL_SIZE + Position.PADDING, "You need a key to open the safe!");
 
 
     //METHODS
@@ -87,7 +94,7 @@ public class Game implements KeyboardHandler {
                     teleporter.verifyCode();
                 }
                 break;
-                case KeyboardEvent.KEY_D:
+            case KeyboardEvent.KEY_D:
                 if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
                     teleporter.deleteLastDigit();
                     System.out.println(teleporter.getUserCode());
@@ -163,41 +170,72 @@ public class Game implements KeyboardHandler {
     public void interact() {
         for (int i = 0; i < currentRoom.getItems().length; i++) {
 
-            if (currentRoom.isShowing()) {
-                currentRoom.getPicture().delete();
-                currentRoom.setIsShowing(false);
+            if (currentRoom.isShowing()) {                                                          //if message is showing
+                if (currentRoom.getPicture() == null) {
+                    box.delete();
+                    text.delete();
+                    currentRoom.setIsShowing(false);
+                } else {
+                    currentRoom.getPicture().delete();
+                    currentRoom.setIsShowing(false);
+                }
                 return;
             }
 
-            if (et.getPos().equals(currentRoom.getItems()[i].getPos())) {
 
-                if (currentRoom.getItems()[i].getClass() == Door.class) {
-                    currentRoom.setPicture(new Picture(Position.PADDING, Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
-                    currentRoom.getPicture().draw();
-                    et.getPic().delete();
-                    System.out.println("teste1");
+            if (et.getPos().equals(currentRoom.getItems()[i].getPos())) {                           //if message is not showing
 
-                    for (int j = 0; j < RoomType.values().length; j++) {
-                        if (RoomType.values()[j].getPic().equals(currentRoom.getItems()[i].getImage(currentRoom.getItems()[i]))) {                               //se nome da imagem de Door é = ao nome da imagem de RoomType
-                            et = new ET(((Door) currentRoom.getItems()[i]).getType().getEtCol(), ((Door) currentRoom.getItems()[i]).getType().getEtRow());
-                            currentRoom = new Room(RoomType.values()[j]);
-                            System.out.println("teste2");
-                            et.show();
-                            return;
-                        }
-                    }
+                if (currentRoom.getItems()[i].getClass() == Door.class) {                           //if interacting with a door (change room and creates new ET in new position)
+                    changeRoom(i);
                     return;
                 }
 
-                if (currentRoom.getItems()[i].getClass() == Item.class) {
-                    currentRoom.setPicture(new Picture(2 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
-                    currentRoom.getPicture().draw();
-                    currentRoom.setIsShowing(true);
-                    return;
+                if (currentRoom.getItems()[i].getClass() == Item.class) {                           //if interacting with an item
+                    if (((Item) currentRoom.getItems()[i]).getType().equals(ItemType.KEY)) {       //if item is a key.
+                        ((Item) currentRoom.getItems()[i]).getType().setFound();                   //if we interact with key, set key as found.
+                        showMessage(i);
+                        return;
+                    }
+                    if ((((Item) currentRoom.getItems()[i]).getType().equals(ItemType.SAFE1) || ((Item) currentRoom.getItems()[i]).getType().equals(ItemType.SAFE2))      //if item is a safe
+                    && !ItemType.KEY.isFound()) {
+                        box.fill();
+                        box.setColor(Color.WHITE);
+                        text.draw();
+                        currentRoom.setIsShowing(true);
+                        return;
+                    }
+
+                    else {showMessage(i);                                                                //if any other item
+                          return;}
                 }
             }
         }
     }
+
+
+    private void showMessage(int i) {
+        currentRoom.setPicture(new Picture(2 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
+        currentRoom.getPicture().draw();
+        currentRoom.setIsShowing(true);
+        return;
+    }
+
+
+    public void changeRoom(int i) {
+        currentRoom.setPicture(new Picture(Position.PADDING, Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
+        currentRoom.getPicture().draw();
+        et.getPic().delete();
+
+        for (int j = 0; j < RoomType.values().length; j++) {
+            if (RoomType.values()[j].getPic().equals(currentRoom.getItems()[i].getImage(currentRoom.getItems()[i]))) {
+                et = new ET(((Door) currentRoom.getItems()[i]).getType().getEtCol(), ((Door) currentRoom.getItems()[i]).getType().getEtRow());
+                currentRoom = new Room(RoomType.values()[j]);
+                et.show();
+                return;
+            }
+        }
+    }
+
 
     public boolean comparePosition(Teleporter teleporter) {
         for (int i = 0; i < teleporter.getPositions().length; i++) {
