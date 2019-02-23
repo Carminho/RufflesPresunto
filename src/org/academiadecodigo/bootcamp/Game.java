@@ -27,7 +27,7 @@ public class Game implements KeyboardHandler {
     private ET et;
     private Teleporter teleporter;
     private Rectangle box = new Rectangle(2.5 * Position.CELL_SIZE + Position.PADDING, 4 * Position.CELL_SIZE + Position.PADDING, 300, 120);
-    private Text text = new Text(3.3 * Position.CELL_SIZE + Position.PADDING, 4.8 * Position.CELL_SIZE + Position.PADDING, "You need a key to open the safe!");
+    private Text text = new Text(3.3 * Position.CELL_SIZE + Position.PADDING, 4.8 * Position.CELL_SIZE + Position.PADDING, "The safe is locked!");
 
 
     //METHODS
@@ -101,68 +101,46 @@ public class Game implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_0:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("0");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("0");
                 break;
             case KeyboardEvent.KEY_1:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("1");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("1");
                 break;
             case KeyboardEvent.KEY_2:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("2");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("2");
                 break;
             case KeyboardEvent.KEY_3:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("3");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("3");
                 break;
             case KeyboardEvent.KEY_4:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("4");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("4");
                 break;
             case KeyboardEvent.KEY_5:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("5");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("5");
                 break;
             case KeyboardEvent.KEY_6:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("6");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("6");
                 break;
             case KeyboardEvent.KEY_7:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("7");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("7");
                 break;
             case KeyboardEvent.KEY_8:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("8");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("8");
                 break;
             case KeyboardEvent.KEY_9:
-                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    teleporter.enterCode("9");
-                    System.out.println(teleporter.getUserCode());
-                }
+                enterNumber("9");
                 break;
             default:
                 System.out.println("Something went wrong here.\n");
                 break;
+        }
+    }
+
+
+    public void enterNumber(String number) {
+        if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+            teleporter.enterCode(number);
+            System.out.println(teleporter.getUserCode());
         }
     }
 
@@ -203,10 +181,10 @@ public class Game implements KeyboardHandler {
                         text.draw();
                         currentRoom.setIsShowing(true);
                         return;
+                    } else {
+                        showMessage(i);                                                                //if any other item
+                        return;
                     }
-
-                    else {showMessage(i);                                                                //if any other item
-                          return;}
                 }
             }
         }
@@ -214,7 +192,7 @@ public class Game implements KeyboardHandler {
 
 
     private void showMessage(int i) {
-        currentRoom.setPicture(new Picture(2 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
+        currentRoom.setPicture(new Picture(1.5 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
         currentRoom.getPicture().draw();
         currentRoom.setIsShowing(true);
         return;
