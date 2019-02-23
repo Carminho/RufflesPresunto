@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
 import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
+import org.academiadecodigo.bootcamp.GameObjects.Items.Teleporter;
 import org.academiadecodigo.bootcamp.Room.Room;
 import org.academiadecodigo.bootcamp.Room.RoomType;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
@@ -19,6 +20,7 @@ public class Game implements KeyboardHandler {
     private Room currentRoom;
     private Keyboard kb;
     private ET et;
+    private Teleporter teleporter;
 
 
     //METHODS
@@ -26,6 +28,7 @@ public class Game implements KeyboardHandler {
         currentRoom = new Room(RoomType.DISSECTION_CELL);
         et = new ET(INIT_ET_COL, INIT_ET_ROW);
         et.show();
+        teleporter = new Teleporter();
         createControlKeys();
     }
 
@@ -38,6 +41,8 @@ public class Game implements KeyboardHandler {
         addEvent(KeyboardEvent.KEY_UP, KeyboardEventType.KEY_PRESSED);
         addEvent(KeyboardEvent.KEY_DOWN, KeyboardEventType.KEY_PRESSED);
         addEvent(KeyboardEvent.KEY_SPACE, KeyboardEventType.KEY_PRESSED);
+        addEvent(KeyboardEvent.KEY_E, KeyboardEventType.KEY_PRESSED);
+        addEvent(KeyboardEvent.KEY_D, KeyboardEventType.KEY_PRESSED);
         addEvent(KeyboardEvent.KEY_0, KeyboardEventType.KEY_PRESSED);
         addEvent(KeyboardEvent.KEY_1, KeyboardEventType.KEY_PRESSED);
         addEvent(KeyboardEvent.KEY_2, KeyboardEventType.KEY_PRESSED);
@@ -64,43 +69,89 @@ public class Game implements KeyboardHandler {
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_LEFT:
                 et.goLeft();
-                System.out.println("posição: " + et.getPos());
                 break;
             case KeyboardEvent.KEY_RIGHT:
                 et.goRight();
-                System.out.println("posição: " + et.getPos());
                 break;
             case KeyboardEvent.KEY_UP:
                 et.goUp();
-                System.out.println("posição: " + et.getPos());
                 break;
             case KeyboardEvent.KEY_DOWN:
                 et.goDown();
-                System.out.println("posição: " + et.getPos());
                 break;
             case KeyboardEvent.KEY_SPACE:
                 interact();
-                System.out.println("Space");
+                break;
+            case KeyboardEvent.KEY_E:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.verifyCode();
+                }
+                break;
+                case KeyboardEvent.KEY_D:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.deleteLastDigit();
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_0:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("0");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_1:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("1");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_2:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("2");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_3:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("3");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_4:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("4");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_5:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("5");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_6:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("6");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_7:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("7");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_8:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("8");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             case KeyboardEvent.KEY_9:
+                if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    teleporter.enterCode("9");
+                    System.out.println(teleporter.getUserCode());
+                }
                 break;
             default:
                 System.out.println("Something went wrong here.\n");
@@ -129,7 +180,6 @@ public class Game implements KeyboardHandler {
                     for (int j = 0; j < RoomType.values().length; j++) {
                         if (RoomType.values()[j].getPic().equals(currentRoom.getItems()[i].getImage(currentRoom.getItems()[i]))) {                               //se nome da imagem de Door é = ao nome da imagem de RoomType
                             et = new ET(((Door) currentRoom.getItems()[i]).getType().getEtCol(), ((Door) currentRoom.getItems()[i]).getType().getEtRow());
-                            //this.et = et;
                             currentRoom = new Room(RoomType.values()[j]);
                             System.out.println("teste2");
                             et.show();
@@ -147,6 +197,15 @@ public class Game implements KeyboardHandler {
                 }
             }
         }
+    }
+
+    public boolean comparePosition(Teleporter teleporter) {
+        for (int i = 0; i < teleporter.getPositions().length; i++) {
+            if (et.getPos().equals(teleporter.getPositions()[i])) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

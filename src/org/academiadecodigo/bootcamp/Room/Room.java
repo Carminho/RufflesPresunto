@@ -1,13 +1,8 @@
 package org.academiadecodigo.bootcamp.Room;
 
-import org.academiadecodigo.bootcamp.ET;
-import org.academiadecodigo.bootcamp.Game;
-import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
+
 import org.academiadecodigo.bootcamp.GameObjects.GameObject;
-import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
 import org.academiadecodigo.bootcamp.Position;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Room {
@@ -62,6 +57,10 @@ public class Room {
 
     public Picture getPicture (){
         return picture;
+    }
+
+    public RoomType getType() {
+        return type;
     }
 
     public void setIsShowing (boolean value){
