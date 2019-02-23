@@ -18,7 +18,7 @@ public enum ItemType {
     KEY1(4, 2, "notes/key.png"),
     KEY2(5, 2, "notes/key.png"),
     SAFE1(7, 9, "notes/safe.png"),
-    SAFE2(7, 9, "notes/safe.png"),
+    SAFE2(8, 9, "notes/safe.png"),
     CARPET1(3, 4, "notes/carpet.png"),
     CARPET2(3, 5, "notes/carpet.png"),
     CARPET3(3, 6, "notes/carpet.png"),

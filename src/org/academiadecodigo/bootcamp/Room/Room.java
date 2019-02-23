@@ -12,18 +12,16 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Room {
 
-    private final int INIT_ET_COL = 6;
-    private final int INIT_ET_ROW = 2;
 
     //PROPERTIES
     private Position pos;
-    private ET et;
+    //private ET et;
     private GameObject[] items;
     private RoomType type;
     private boolean isShowing;
     private Picture picture;
-    private Game game;
-
+    private Picture scenery;
+    //private Game game;
 
 
     //CONSTRUCTOR
@@ -34,13 +32,17 @@ public class Room {
 
         items = new GameObject[type.getDoors().length + type.getItems().length];
 
-        Picture scenery = new Picture(pos.PADDING, pos.PADDING, "dissection-room.jpeg");
+        scenery = new Picture(pos.PADDING, pos.PADDING, type.getPic());
         scenery.draw();
 
         createGameObjects();
 
-        et = new ET(INIT_ET_COL, INIT_ET_ROW);
-        et.show();
+        //game = new Game();
+
+        /*if (type == RoomType.DISSECTION_CELL) {
+            et = new ET(INIT_ET_COL, INIT_ET_ROW);
+            et.show();
+        }*/
 
     }
 
@@ -60,11 +62,12 @@ public class Room {
     }
 
 
-    public ET getEt() {
+    /*public ET getEt() {
         return et;
-    }
+    }*/
 
-    public void interact() {
+
+    /*public void interact() {
         for (int i = 0; i < items.length; i++) {
 
             if (isShowing) {
@@ -76,19 +79,29 @@ public class Room {
                 if (items[i].getClass() == Door.class) {
                     picture = new Picture(Position.PADDING, Position.PADDING, items[i].getImage(items[i]));
                     picture.draw();
-                    ET et = new ET(((Door) items[i]).getType().getEtCol(), ((Door) items[i]).getType().getEtRow());
-                    this.et = et;
-                    et.show();
-                    /*System.out.println(items[i].getImage(items[i]));
-                    switch (items[i].getImage(items[i])){
-                        case "resources/security.jpeg"
-                    }*/
+
+                    System.out.println("door image :" + items[i].getImage(items[i]));
+
+                    for (int j = 0; j < RoomType.values().length; j++) {
+                        if (RoomType.values()[j].getPic().equals(items[i].getImage(items[i]))) {                               //se nome da imagem de Door é = ao nome da imagem de RoomType
+                            System.out.println("room type image: " + RoomType.values()[j].getPic());
+                            System.out.println("room type to set current: " + RoomType.values()[j]);
+                            game.setCurrentRoom(RoomType.values()[j]);
+                            System.out.println("current room " + game.getCurrentRoom());
+                            ET et = new ET(((Door) items[i]).getType().getEtCol(), ((Door) items[i]).getType().getEtRow());
+                            this.et = et;
+                            et.show();
+                            return;
+                        }
                     }
+                    return;
+                }
 
                 if (items[i].getClass() == Item.class) {
                     picture = new Picture(2 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, items[i].getImage(items[i]));
                     picture.draw();
                     isShowing = true;
+                    System.out.println("current room " + game.getCurrentRoom());
                     return;
                 }
 
@@ -97,13 +110,42 @@ public class Room {
 
         }
 
+    }*/
+
+    public GameObject[] getItems() {
+        return items;
+    }
+
+    public void setItems(GameObject[] items) {
+        this.items = items;
     }
 
     public RoomType getType() {
         return type;
     }
 
+    public boolean isShowing() {
+        return isShowing;
+    }
 
+    public Picture getPicture (){
+        return picture;
+    }
+
+    public void setIsShowing (boolean value){
+        isShowing = value;
+    }
+
+    public void setPicture (Picture image){
+        picture = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "type=" + type +
+                '}';
+    }
 }
 
 
