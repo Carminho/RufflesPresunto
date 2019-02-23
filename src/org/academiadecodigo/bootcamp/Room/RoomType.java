@@ -14,7 +14,7 @@ public enum RoomType {
     LOBBY(ItemType.BUG,DoorType.THREE_TWO, DoorType.THREE_FOUR, DoorType.THREE_FIVE, DoorType.THREE_SIX, "resources/lobby.jpeg"),
     MEETING_ROOM(ItemType.CEO1, ItemType.CEO2, ItemType.CEO3, ItemType.CEO4, ItemType.DEADBODY1, ItemType.DEADBODY2, DoorType.FOUR_THREE, "resources/meeting_room.jpeg"),
     LAB(ItemType.COMPUTER1, ItemType.COMPUTER2, ItemType.COMPUTER3, ItemType.COMPUTER4, DoorType.FIVE_THREE, "resources/lab.jpeg"),
-    WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP, DoorType.SIX_THREE, "resources/warehouse.jpeg"),
+    WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP1, ItemType.TLP2, ItemType.TLP3, ItemType.TLP4, ItemType.TLP5, ItemType.TLP6, DoorType.SIX_THREE, "resources/warehouse.jpeg"),
     EGGXIT(ItemType.ET_GAME_DISK, "dissection-room.jpeg");
 
 
@@ -26,6 +26,31 @@ public enum RoomType {
 
 
     //CONSTRUCTOR
+    //rooms with 3 items and 1 door
+    RoomType(ItemType type1, ItemType type2, ItemType type3, ItemType type4, ItemType type5, ItemType type6, ItemType type7, ItemType type8, ItemType type9, ItemType type10, ItemType type11, ItemType type12, ItemType type13, ItemType type14, ItemType type15, ItemType type16, DoorType type17, String imagePath) {
+        this.items = new Item[16];
+        this.items[0] = new Item(type1);
+        this.items[1] = new Item(type2);
+        this.items[2] = new Item(type3);
+        this.items[3] = new Item(type4);
+        this.items[4] = new Item(type5);
+        this.items[5] = new Item(type6);
+        this.items[6] = new Item(type7);
+        this.items[7] = new Item(type8);
+        this.items[8] = new Item(type9);
+        this.items[9] = new Item(type10);
+        this.items[10] = new Item(type11);
+        this.items[11] = new Item(type12);
+        this.items[12] = new Item(type13);
+        this.items[13] = new Item(type14);
+        this.items[14] = new Item(type15);
+        this.items[15] = new Item(type16);
+        this.doors = new Door[1];
+        this.doors[0] = new Door(type17);
+        this.pic = imagePath;
+    }
+
+
     //rooms with 3 items and 1 door
     RoomType(ItemType type1, ItemType type2, ItemType type3, ItemType type4, ItemType type5, ItemType type6, ItemType type7, ItemType type8, ItemType type9, ItemType type10, ItemType type11, DoorType type12, String imagePath) {
         this.items = new Item[11];
@@ -44,7 +69,6 @@ public enum RoomType {
         this.doors[0] = new Door(type12);
         this.pic = imagePath;
     }
-
 
 
     //rooms with 3 items and 2 doors

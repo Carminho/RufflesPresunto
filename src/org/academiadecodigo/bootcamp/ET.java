@@ -14,7 +14,7 @@ public class ET {
     //CONSTRUCTOR
     public ET(int col, int row) {
         pos = new Position(col, row);
-        pic = new Picture(pos.PADDING, pos.PADDING, "et.png");
+        pic = new Picture(pos.PADDING, pos.PADDING, "resources/et.png");
         currentDirection = Direction.LEFT;
     }
 
