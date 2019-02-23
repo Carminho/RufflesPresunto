@@ -32,7 +32,7 @@ public class Teleporter {
 
     public void verifyCode() {
         if (userCode.equals(RIGHT_CODE)) {                               // Win game
-            Picture win = new Picture(Position.PADDING, Position.PADDING, "win.png");
+            Picture win = new Picture(Position.PADDING, Position.PADDING, "resources/win.png");
             win.draw();
         } else if (userCode.equals(EGGXIT_CODE)) {                       // Go to easter egg
             System.out.println("Go to easter egg");
