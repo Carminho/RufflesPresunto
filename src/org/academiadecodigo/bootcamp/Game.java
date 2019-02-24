@@ -34,8 +34,6 @@ public class Game implements KeyboardHandler {
     //METHODS
     public void start() {
         currentRoom = new Room(RoomType.START_MENU);
-        //et = new ET(INIT_ET_COL, INIT_ET_ROW);
-        //et.show();
         teleporter = new Teleporter();
         createControlKeys();
     }
