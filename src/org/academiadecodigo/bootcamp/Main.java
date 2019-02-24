@@ -15,13 +15,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //InputStream in;
+        InputStream in;
 
 
         Game game = new Game();
         game.start();
 
-        /*try{
+        try{
 
             in = new FileInputStream(new File( "resources/et_soundtrack.wav" ));
             AudioStream audio = new AudioStream(in);
@@ -29,7 +29,7 @@ public class Main {
 
         } catch(Exception e){
             e.getMessage();
-        }*/
+        }
 
     }
 
