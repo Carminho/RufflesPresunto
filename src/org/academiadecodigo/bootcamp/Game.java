@@ -98,6 +98,7 @@ public class Game implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_SPACE:
                 if (currentRoom.getType() != RoomType.START_MENU) {
+                    teleporter.deleteAll();
                     interact();
                     if (currentRoom.getType().equals(RoomType.EGGXIT) && et.getPos().getCol() == 5 && et.getPos().getRow() == 4) {
                         Picture free = new Picture(Position.PADDING, Position.PADDING, "free-alomogordo.jpg");
@@ -133,34 +134,34 @@ public class Game implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_0:
-                enterNumber("0");
+                enterNumber("0", currentRoom.isShowing());
                 break;
             case KeyboardEvent.KEY_1:
-                enterNumber("1");
+                enterNumber("1", currentRoom.isShowing());
                 break;
             case KeyboardEvent.KEY_2:
-                enterNumber("2");
+                enterNumber("2", currentRoom.isShowing());
                 break;
             case KeyboardEvent.KEY_3:
-                enterNumber("3");
+                enterNumber("3", currentRoom.isShowing());
                 break;
             case KeyboardEvent.KEY_4:
-                enterNumber("4");
+                enterNumber("4", currentRoom.isShowing());
                 break;
             case KeyboardEvent.KEY_5:
-                enterNumber("5");
+                enterNumber("5", currentRoom.isShowing());
                 break;
             case KeyboardEvent.KEY_6:
-                enterNumber("6");
+                enterNumber("6", currentRoom.isShowing());
                 break;
             case KeyboardEvent.KEY_7:
-                enterNumber("7");
+                enterNumber("7", currentRoom.isShowing());
                 break;
             case KeyboardEvent.KEY_8:
-                enterNumber("8");
+                enterNumber("8", currentRoom.isShowing());
                 break;
             case KeyboardEvent.KEY_9:
-                enterNumber("9");
+                enterNumber("9", currentRoom.isShowing());
                 break;
             default:
                 System.out.println("Something went wrong here.\n");
@@ -169,9 +170,9 @@ public class Game implements KeyboardHandler {
     }
 
 
-    public void enterNumber(String number) {
-        if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-            teleporter.enterCode(number);
+    public void enterNumber(String number, Boolean isShowing) {
+        if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter) && isShowing) {
+            teleporter.enterCode(number, currentRoom.isShowing());
         }
     }
 
@@ -211,7 +212,7 @@ public class Game implements KeyboardHandler {
                         currentRoom.setIsShowing(true);
                         return;
                     } else {
-                        showMessage(i);                                                                //if any other item
+                        showMessage(i);                                                                                             //if any other item
                         return;
                     }
                 }

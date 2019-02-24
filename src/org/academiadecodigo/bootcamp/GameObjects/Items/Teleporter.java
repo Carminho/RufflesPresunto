@@ -22,24 +22,26 @@ public class Teleporter {
     }
 
     // METHODS
-    public void enterCode(String number) {
-        if (userCode.length() < 5) {
-            userCode = userCode + number;
+    public void enterCode(String number, boolean isShowing) {
+        if (isShowing) {
+            if (userCode.length() < 5) {
+                userCode = userCode + number;
 
-            if (userCode.length() == 1) {
-                usercodePosition(0, 2);
-            }
-            if (userCode.length() == 2) {
-                usercodePosition(1, 3.4);
-            }
-            if (userCode.length() == 3) {
-                usercodePosition(2, 4.75);
-            }
-            if (userCode.length() == 4) {
-                usercodePosition(3, 6.2);
-            }
-            if (userCode.length() == 5) {
-                usercodePosition(4, 7.5);
+                if (userCode.length() == 1) {
+                    usercodePosition(0, 2);
+                }
+                if (userCode.length() == 2) {
+                    usercodePosition(1, 3.4);
+                }
+                if (userCode.length() == 3) {
+                    usercodePosition(2, 4.75);
+                }
+                if (userCode.length() == 4) {
+                    usercodePosition(3, 6.2);
+                }
+                if (userCode.length() == 5) {
+                    usercodePosition(4, 7.5);
+                }
             }
         }
 
@@ -101,7 +103,7 @@ public class Teleporter {
         } else if (userCode.equals(EGGXIT_CODE)) {                       // Go to easter egg
             eggxitON = true;
         } else {                                                        // Wrong code, try again
-            Picture wrong = new Picture(1.5 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING,"notes/access-code-wrong.png");
+            Picture wrong = new Picture(1.5 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, "notes/access-code-wrong.png");
             wrong.draw();
             deleteAll();
         }
