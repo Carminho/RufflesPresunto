@@ -169,7 +169,6 @@ public class Game implements KeyboardHandler {
 
     public void interact() {
         for (int i = 0; i < currentRoom.getItems().length; i++) {
-
             if (currentRoom.isShowing()) {                                                          //if message is showing
                 if (currentRoom.getPicture() == null) {
                     box.delete();
@@ -181,15 +180,11 @@ public class Game implements KeyboardHandler {
                 }
                 return;
             }
-
-
             if (et.getPos().equals(currentRoom.getItems()[i].getPos())) {                           //if message is not showing
-
                 if (currentRoom.getItems()[i].getClass() == Door.class) {                           //if interacting with a door (change room and creates new ET in new position)
                     changeRoom(i);
                     return;
                 }
-
                 if (currentRoom.getItems()[i].getClass() == Item.class) {                           //if interacting with an item
                     if (((Item) currentRoom.getItems()[i]).getType().equals(ItemType.KEY)) {       //if item is a key.
                         ((Item) currentRoom.getItems()[i]).getType().setFound();                   //if we interact with key, set key as found.
@@ -204,7 +199,6 @@ public class Game implements KeyboardHandler {
                         currentRoom.setIsShowing(true);
                         return;
                     }
-
                     else {showMessage(i);                                                                //if any other item
                           return;}
                 }
