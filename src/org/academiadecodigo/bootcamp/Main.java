@@ -1,35 +1,21 @@
 package org.academiadecodigo.bootcamp;
 
-//import sun.audio.AudioPlayer;
-//import sun.audio.AudioStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 
 public class Main {
 
     public static void main(String[] args) {
 
-        InputStream in;
-
-
         Game game = new Game();
         game.start();
+        Sound s = new Sound();
 
-        /*try{
 
-            in = new FileInputStream(new File("et_soundtrack.wav"));
-            AudioStream audio = new AudioStream(in);
-            AudioPlayer.player.start(audio);
+        s.sound();
 
-        } catch(Exception e){
-            e.getMessage();
-        }
-*/
     }
 
     // GIT IS DUMB
     //BUILD IS DUMB
+    //BUT IS DONEEEEE
 
 }
