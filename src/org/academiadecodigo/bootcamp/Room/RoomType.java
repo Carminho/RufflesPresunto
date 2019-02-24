@@ -93,7 +93,7 @@ public enum RoomType {
 
     //rooms with 6 items and 1 door
     RoomType(ItemType type1, ItemType type2, ItemType type3, ItemType type4, ItemType type5, ItemType type6, ItemType type7, ItemType type8, DoorType type9, String imagePath) {
-        this.items = new Item[6];
+        this.items = new Item[8];
         this.items[0] = new Item(type1);
         this.items[1] = new Item(type2);
         this.items[2] = new Item(type3);
