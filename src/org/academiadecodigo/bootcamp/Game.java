@@ -103,7 +103,6 @@ public class Game implements KeyboardHandler {
             case KeyboardEvent.KEY_D:
                 if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
                     teleporter.deleteAll();
-                    System.out.println(teleporter.getUserCode());
                 }
                 break;
             case KeyboardEvent.KEY_0:
@@ -146,14 +145,12 @@ public class Game implements KeyboardHandler {
     public void enterNumber(String number) {
         if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
             teleporter.enterCode(number);
-            System.out.println(teleporter.getUserCode());
         }
     }
 
 
     public void interact() {
         for (int i = 0; i < currentRoom.getItems().length; i++) {
-
 
             if (currentRoom.isShowing() && currentRoom.getType() != RoomType.EGGXIT) {                                                          //if message is showing
                 if (currentRoom.getPicture() == null) {
