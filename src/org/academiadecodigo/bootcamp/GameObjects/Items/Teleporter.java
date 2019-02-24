@@ -1,7 +1,6 @@
 package org.academiadecodigo.bootcamp.GameObjects.Items;
 
 import org.academiadecodigo.bootcamp.Position;
-import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Teleporter {
@@ -11,16 +10,14 @@ public class Teleporter {
     private final String EGGXIT_CODE = "93577";
     private String userCode;
     private Position[] positions;
-    //private Text code;
-    private Picture[] codeAna;
+    private Picture[] code;
     private boolean eggxitON;
 
 
     // CONSTRUCTOR
     public Teleporter() {
         userCode = "";
-        codeAna = new Picture[5];
-        //code = new Text(5 * Position.CELL_SIZE, 4 * Position.CELL_SIZE, userCode);
+        code = new Picture[5];
         positions = new Position[]{ItemType.TLP1.getPos(), ItemType.TLP2.getPos(), ItemType.TLP3.getPos(), ItemType.TLP4.getPos(), ItemType.TLP5.getPos(), ItemType.TLP6.getPos()};
     }
 
@@ -46,106 +43,92 @@ public class Teleporter {
             }
         }
 
-        /*code.delete();
-        code = new Text(5 * Position.CELL_SIZE, 4 * Position.CELL_SIZE, userCode);
-        code.grow(40, 40);
-        code.draw();*/
-
-        }
+    }
 
 
-        private void usercodePosition ( int number, double col){
-            switch (userCode.charAt(number)) {
-                case '0':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/0.png");
-                    codeAna[number].draw();
-                    break;
-                case '1':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/1.png");
-                    codeAna[number].draw();
-                    break;
-                case '2':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/2.png");
-                    codeAna[number].draw();
-                    break;
-                case '3':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/3.png");
-                    codeAna[number].draw();
-                    break;
-                case '4':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/4.png");
-                    codeAna[number].draw();
-                    break;
-                case '5':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/5.png");
-                    codeAna[number].draw();
-                    break;
-                case '6':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/6.png");
-                    codeAna[number].draw();
-                    break;
-                case '7':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/7.png");
-                    codeAna[number].draw();
-                    break;
-                case '8':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/8.png");
-                    codeAna[number].draw();
-                    break;
-                case '9':
-                    codeAna[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/9.png");
-                    codeAna[number].draw();
-                    break;
-                default:
-                    System.out.println("You must insert a number!");
-            }
-        }
-
-
-        public void verifyCode () {
-            if (userCode.equals(RIGHT_CODE)) {                               // Win game
-                Picture win = new Picture(Position.PADDING, Position.PADDING, "resources/win.png");
-                win.draw();
-            } else if (userCode.equals(EGGXIT_CODE)) {                       // Go to easter egg
-                eggxitON = true;
-                System.out.println("Go to easter egg");
-            } else {                                                    // Wrong code, try again
-                System.out.println("Wrong code, try again");
-            }
-        }
-
-
-        public void deleteAll () {
-            userCode = "";
-            int j = 0;
-            for (Picture pic : codeAna) {
-                if (pic != null) {
-                    codeAna[j].delete();
-                    j++;
-                }
-            }
-        }
-
-        /*public void deleteLastDigit () {
-            if (userCode.length() > 0) {
-                userCode = userCode.substring(0, userCode.length() - 1);
-                code.delete();
-                code = new Text(5 * Position.CELL_SIZE, 4 * Position.CELL_SIZE, userCode);
-                code.grow(40, 40);
-                code.draw();
-            }
-        }*/
-
-
-        public Position[] getPositions () {
-            return positions;
-        }
-
-        public String getUserCode () {
-            return userCode;
-        }
-
-        public boolean isEggxitON () {
-            return eggxitON;
+    private void usercodePosition(int number, double col) {
+        switch (userCode.charAt(number)) {
+            case '0':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/0.png");
+                code[number].draw();
+                break;
+            case '1':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/1.png");
+                code[number].draw();
+                break;
+            case '2':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/2.png");
+                code[number].draw();
+                break;
+            case '3':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/3.png");
+                code[number].draw();
+                break;
+            case '4':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/4.png");
+                code[number].draw();
+                break;
+            case '5':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/5.png");
+                code[number].draw();
+                break;
+            case '6':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/6.png");
+                code[number].draw();
+                break;
+            case '7':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/7.png");
+                code[number].draw();
+                break;
+            case '8':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/8.png");
+                code[number].draw();
+                break;
+            case '9':
+                code[number] = new Picture(col * Position.CELL_SIZE, 4.9 * Position.CELL_SIZE, "resources/numbers/9.png");
+                code[number].draw();
+                break;
+            default:
+                System.out.println("You must insert a number!");
         }
     }
+
+
+    public void verifyCode() {
+        if (userCode.equals(RIGHT_CODE)) {                               // Win game
+            Picture win = new Picture(Position.PADDING, Position.PADDING, "resources/win.png");
+            win.draw();
+        } else if (userCode.equals(EGGXIT_CODE)) {                       // Go to easter egg
+            eggxitON = true;
+        } else {                                                        // Wrong code, try again
+            Picture wrong = new Picture(1.5 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING,"resources/notes/access-code-wrong.png");
+            wrong.draw();
+            deleteAll();
+        }
+    }
+
+
+    public void deleteAll() {
+        userCode = "";
+        int j = 0;
+        for (Picture pic : code) {
+            if (pic != null) {
+                code[j].delete();
+                j++;
+            }
+        }
+    }
+
+
+    public Position[] getPositions() {
+        return positions;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public boolean isEggxitON() {
+        return eggxitON;
+    }
+}

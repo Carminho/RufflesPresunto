@@ -103,7 +103,6 @@ public class Game implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_D:
                 if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
-                    //teleporter.deleteLastDigit();
                     teleporter.deleteAll();
                     System.out.println(teleporter.getUserCode());
                 }
@@ -155,22 +154,18 @@ public class Game implements KeyboardHandler {
 
     public void interact() {
         for (int i = 0; i < currentRoom.getItems().length; i++) {
-            System.out.println("current room " + currentRoom);
-            System.out.println("is showing message? " + currentRoom.isShowing());
             System.out.println(currentRoom.getPicture());
 
-            if (currentRoom.isShowing()) {                                                          //if message is showing
+            if (currentRoom.isShowing() && currentRoom.getType() != RoomType.EGGXIT) {                                                          //if message is showing
                 if (currentRoom.getPicture() == null) {
                     box.delete();
                     text.delete();
                     currentRoom.setIsShowing(false);
-                    System.out.println("apagar caixa de texto");
                 } else {
                     currentRoom.getPicture().delete();
                     box.delete();
                     text.delete();
                     currentRoom.setIsShowing(false);
-                    System.out.println("apagar imagem");
                 }
                 return;
             }
@@ -180,7 +175,6 @@ public class Game implements KeyboardHandler {
 
                 if (currentRoom.getItems()[i].getClass() == Door.class) {                           //if interacting with a door (change room and creates new ET in new position)
                     changeRoom(i);
-                    System.out.println("mudar de room");
                     return;
                 }
 
@@ -188,7 +182,6 @@ public class Game implements KeyboardHandler {
                     if (((Item) currentRoom.getItems()[i]).getType().equals(ItemType.KEY)) {       //if item is a key.
                         ((Item) currentRoom.getItems()[i]).getType().setFound();                   //if we interact with key, set key as found.
                         showMessage(i);
-                        System.out.println("item is a key");
                         return;
                     }
                     if ((((Item) currentRoom.getItems()[i]).getType().equals(ItemType.SAFE1) || ((Item) currentRoom.getItems()[i]).getType().equals(ItemType.SAFE2))      //if item is a safe
@@ -197,11 +190,9 @@ public class Game implements KeyboardHandler {
                         box.setColor(Color.WHITE);
                         text.draw();
                         currentRoom.setIsShowing(true);
-                        System.out.println("item is a safe");
                         return;
                     } else {
                         showMessage(i);                                                                //if any other item
-                        System.out.println("other item");
                         return;
                     }
                 }
@@ -217,7 +208,6 @@ public class Game implements KeyboardHandler {
             currentRoom = new Room(RoomType.EGGXIT);
             et = new ET(0,0);
             et.show();
-            System.out.println("change to eggxit room");
         }
 
     }
