@@ -12,6 +12,7 @@ public class Teleporter {
     private Position[] positions;
     private Picture[] code;
     private boolean eggxitON;
+    private Picture wrongCode;
 
 
     // CONSTRUCTOR
@@ -103,12 +104,17 @@ public class Teleporter {
         } else if (userCode.equals(EGGXIT_CODE)) {                       // Go to easter egg
             eggxitON = true;
         } else {                                                        // Wrong code, try again
-            Picture wrong = new Picture(1.5 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, "notes/access-code-wrong.png");
-            wrong.draw();
-            deleteAll();
+            if (wrongCode == null) {
+                wrongCode = new Picture(1.5 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, "notes/access-code-wrong.png");
+                wrongCode.draw();
+                deleteAll();
+            } else {
+                wrongCode.delete();
+                deleteAll();
+                wrongCode.draw();
+            }
         }
     }
-
 
     public void deleteAll() {
         userCode = "";
@@ -126,11 +132,12 @@ public class Teleporter {
         return positions;
     }
 
-    public String getUserCode() {
-        return userCode;
-    }
-
     public boolean isEggxitON() {
         return eggxitON;
     }
+
+    public Picture getWrongCode() {
+        return wrongCode;
+    }
+
 }

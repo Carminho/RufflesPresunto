@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp;
 
+import javafx.geometry.Pos;
 import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
 import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
 import org.academiadecodigo.bootcamp.GameObjects.Items.ItemType;
@@ -101,14 +102,17 @@ public class Game implements KeyboardHandler {
                     teleporter.deleteAll();
                     interact();
                     if (currentRoom.getType().equals(RoomType.EGGXIT) && et.getPos().getCol() == 5 && et.getPos().getRow() == 4) {
-                        Picture free = new Picture(Position.PADDING, Position.PADDING, "free-alomogordo.jpg");
+                        Picture free = new Picture(Position.PADDING, Position.PADDING, "credits.jpeg");
                         free.draw();
                         return;
+                    }
+                    if (teleporter.getWrongCode() != null) {
+                        teleporter.getWrongCode().delete();
                     }
                 }
                 break;
             case KeyboardEvent.KEY_O:
-                if (currentRoom.getType() == RoomType.START_MENU && !currentRoom.isShowing()){
+                if (currentRoom.getType() == RoomType.START_MENU && !currentRoom.isShowing()) {
                     options = new Picture(Position.PADDING, Position.PADDING, "menu_options.png");
                     options.translate(Position.CELL_SIZE * 0.5, Position.CELL_SIZE * 0.5);
                     options.draw();
@@ -118,13 +122,21 @@ public class Game implements KeyboardHandler {
             case KeyboardEvent.KEY_S:
                 if (currentRoom.getType() == RoomType.START_MENU) {
                     currentRoom = new Room(RoomType.DISSECTION_CELL);
+                    currentRoom.setPicture(new Picture(1.5 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, currentRoom.getItems()[12].getImage(currentRoom.getItems()[12])));
+                    currentRoom.getPicture().draw();
+                    currentRoom.setIsShowing(true);
                     et = new ET(INIT_ET_COL, INIT_ET_ROW);
                     et.show();
                 }
                 break;
             case KeyboardEvent.KEY_E:
                 if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
+                    currentRoom.getPicture().delete();
+                    if (teleporter.getWrongCode() != null) {
+                        teleporter.getWrongCode().delete();
+                    }
                     teleporter.verifyCode();
+
                 }
                 setEggxitRoom();
                 break;
@@ -267,16 +279,16 @@ public class Game implements KeyboardHandler {
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
-        switch(keyboardEvent.getKey()) {
+        switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_O:
-            if (currentRoom.getType() == RoomType.START_MENU && currentRoom.isShowing()) {
-                options.delete();
-                System.out.println("Is Showing: " + currentRoom.isShowing());
-                currentRoom.setIsShowing(false);
-                System.out.println("Releasing O");
-                System.out.println("Is Showing: " + currentRoom.isShowing());
-            }
-            break;
+                if (currentRoom.getType() == RoomType.START_MENU && currentRoom.isShowing()) {
+                    options.delete();
+                    System.out.println("Is Showing: " + currentRoom.isShowing());
+                    currentRoom.setIsShowing(false);
+                    System.out.println("Releasing O");
+                    System.out.println("Is Showing: " + currentRoom.isShowing());
+                }
+                break;
             default:
                 System.out.println("Something went wrong with the key release");
         }
