@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp.Position;
 
 public enum ItemType {
 
+    STORY(6, 2, "notes/story.jpeg"),
     DEAD_ET_BED1(3, 1, "notes/deadEtBed.png"),
     DEAD_ET_BED2(3, 2, "notes/deadEtBed.png"),
     DEAD_ET_BED3(3, 3, "notes/deadEtBed.png"),
@@ -32,12 +33,14 @@ public enum ItemType {
     CEO4(8, 5, "notes/CEO.png"),
     FOLDERS1(1, 9, "notes/folders.png"),
     FOLDERS2(2, 9, "notes/folders.png"),
-    DEADBODY1(4, 1, "notes/baloonText.png"),
-    DEADBODY2(5, 1, "notes/baloonText.png"),
+    DEADBODY1(4, 1, "notes/dead-body.png"),
+    DEADBODY2(5, 1, "notes/dead-body.png"),
     COMPUTER1(0, 8, "notes/computer.png"),
     COMPUTER2(1, 8, "notes/computer.png"),
     COMPUTER3(0, 9, "notes/computer.png"),
     COMPUTER4(1, 9, "notes/computer.png"),
+    MICROSCOPE(9, 9, "notes/microscope.png"),
+    BEAKER(9, 5, "notes/beaker.png"),
     ELVIS(7, 2, "notes/elvis.png"),
     BIKE(1, 1, "notes/bike.png"),
     TLP1(4, 4, "notes/access-code.png"),
@@ -46,6 +49,9 @@ public enum ItemType {
     TLP4(5, 4, "notes/access-code.png"),
     TLP5(5, 5, "notes/access-code.png"),
     TLP6(5, 6, "notes/access-code.png"),
+    PIZZA(8, 8, "notes/pizza.png"),
+    ARK1(1, 8, "notes/ark.png"),
+    ARK2(2, 8, "notes/ark.png"),
     ET_GAME_DISK(1, 2, "notes/etGameDisk.png");
 
 
