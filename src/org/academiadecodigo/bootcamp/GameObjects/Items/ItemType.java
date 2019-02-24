@@ -33,12 +33,12 @@ public enum ItemType {
     COMPUTER4(1, 9, "resources/notes/computer.png"),
     ELVIS(7, 2, "resources/notes/elvis-presley.gif"),
     BIKE(1, 1, "resources/notes/bike.png"),
-    TLP1(4, 4, "resources/notes/tlp.png"),
-    TLP2(4, 5, "resources/notes/tlp.png"),
-    TLP3(4, 6, "resources/notes/tlp.png"),
-    TLP4(5, 4, "resources/notes/tlp.png"),
-    TLP5(5, 5, "resources/notes/tlp.png"),
-    TLP6(5, 6, "resources/notes/tlp.png"),
+    TLP1(4, 4, "resources/notes/access-code.png"),
+    TLP2(4, 5, "resources/notes/access-code.png"),
+    TLP3(4, 6, "resources/notes/access-code.png"),
+    TLP4(5, 4, "resources/notes/access-code.png"),
+    TLP5(5, 5, "resources/notes/access-code.png"),
+    TLP6(5, 6, "resources/notes/access-code.png"),
     ET_GAME_DISK(1, 2, "resources/notes/etGameDisk.png");
 
 
