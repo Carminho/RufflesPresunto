@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp;
 
-import javafx.geometry.Pos;
 import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
 import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
 import org.academiadecodigo.bootcamp.GameObjects.Items.ItemType;
@@ -167,15 +166,11 @@ public class Game implements KeyboardHandler {
                 }
                 return;
             }
-
-
             if (et.getPos().equals(currentRoom.getItems()[i].getPos())) {                           //if message is not showing
-
                 if (currentRoom.getItems()[i].getClass() == Door.class) {                           //if interacting with a door (change room and creates new ET in new position)
                     changeRoom(i);
                     return;
                 }
-
                 if (currentRoom.getItems()[i].getClass() == Item.class) {                           //if interacting with an item
                     if (((Item) currentRoom.getItems()[i]).getType().equals(ItemType.KEY)) {       //if item is a key.
                         ((Item) currentRoom.getItems()[i]).getType().setFound();                   //if we interact with key, set key as found.
