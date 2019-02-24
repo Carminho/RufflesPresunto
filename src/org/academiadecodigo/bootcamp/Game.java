@@ -103,7 +103,6 @@ public class Game implements KeyboardHandler {
             case KeyboardEvent.KEY_D:
                 if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
                     teleporter.deleteAll();
-                    System.out.println(teleporter.getUserCode());
                 }
                 break;
             case KeyboardEvent.KEY_0:
