@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp;
 
+import javafx.geometry.Pos;
 import org.academiadecodigo.bootcamp.GameObjects.Doors.Door;
 import org.academiadecodigo.bootcamp.GameObjects.Items.Item;
 import org.academiadecodigo.bootcamp.GameObjects.Items.ItemType;
@@ -27,7 +28,7 @@ public class Game implements KeyboardHandler {
     private ET et;
     private Teleporter teleporter;
     private Rectangle box = new Rectangle(2.5 * Position.CELL_SIZE + Position.PADDING, 4 * Position.CELL_SIZE + Position.PADDING, 300, 120);
-    private Text text = new Text(3.3 * Position.CELL_SIZE + Position.PADDING, 4.8 * Position.CELL_SIZE + Position.PADDING, "The safe is locked!");
+    private Text text = new Text( 4* Position.CELL_SIZE + Position.PADDING, 4.8 * Position.CELL_SIZE + Position.PADDING, "The safe is locked!");
 
 
     //METHODS
@@ -88,11 +89,17 @@ public class Game implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_SPACE:
                 interact();
+                if (currentRoom.getType().equals(RoomType.EGGXIT) && et.getPos().getCol() == 5 && et.getPos().getRow() == 4) {
+                    Picture free = new Picture(Position.PADDING, Position.PADDING, "resources/free-alomogordo.jpg");
+                    free.draw();
+                    return;
+                }
                 break;
             case KeyboardEvent.KEY_E:
                 if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
                     teleporter.verifyCode();
                 }
+                setEggxitRoom();
                 break;
             case KeyboardEvent.KEY_D:
                 if (currentRoom.getType() == RoomType.WAREHOUSE && comparePosition(teleporter)) {
@@ -191,6 +198,17 @@ public class Game implements KeyboardHandler {
     }
 
 
+    private void setEggxitRoom (){
+        if (teleporter.isEggxitON()){
+            currentRoom.setPicture(new Picture (Position.PADDING,Position.PADDING,RoomType.EGGXIT.getPic()));
+            currentRoom.getPicture().draw();
+            currentRoom = new Room(RoomType.EGGXIT);
+            et = new ET(0,0);
+            et.show();
+        }
+
+    }
+
     private void showMessage(int i) {
         currentRoom.setPicture(new Picture(1.5 * Position.CELL_SIZE + Position.PADDING, 3 * Position.CELL_SIZE + Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
         currentRoom.getPicture().draw();
@@ -199,7 +217,7 @@ public class Game implements KeyboardHandler {
     }
 
 
-    public void changeRoom(int i) {
+    private void changeRoom(int i) {
         currentRoom.setPicture(new Picture(Position.PADDING, Position.PADDING, currentRoom.getItems()[i].getImage(currentRoom.getItems()[i])));
         currentRoom.getPicture().draw();
         et.getPic().delete();
@@ -215,7 +233,7 @@ public class Game implements KeyboardHandler {
     }
 
 
-    public boolean comparePosition(Teleporter teleporter) {
+    private boolean comparePosition(Teleporter teleporter) {
         for (int i = 0; i < teleporter.getPositions().length; i++) {
             if (et.getPos().equals(teleporter.getPositions()[i])) {
                 return true;

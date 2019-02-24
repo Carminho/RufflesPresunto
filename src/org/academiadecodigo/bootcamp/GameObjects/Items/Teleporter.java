@@ -12,6 +12,7 @@ public class Teleporter {
     private String userCode;
     private Position[] positions;
     private Text code;
+    private boolean eggxitON;
 
 
     // CONSTRUCTOR
@@ -35,6 +36,7 @@ public class Teleporter {
             Picture win = new Picture(Position.PADDING, Position.PADDING, "resources/win.png");
             win.draw();
         } else if (userCode.equals(EGGXIT_CODE)) {                       // Go to easter egg
+            eggxitON = true;
             System.out.println("Go to easter egg");
         } else {                                                    // Wrong code, try again
             System.out.println("Wrong code, try again");
@@ -57,5 +59,9 @@ public class Teleporter {
 
     public String getUserCode() {
         return userCode;
+    }
+
+    public boolean isEggxitON (){
+        return eggxitON;
     }
 }

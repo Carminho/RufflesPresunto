@@ -14,18 +14,22 @@ import java.util.LinkedList;
 public class Main {
 
     public static void main(String[] args) {
+
+        //InputStream in;
+
+
         Game game = new Game();
         game.start();
 
-        InputStream in;
-
-        try{
+        /*try{
 
             in = new FileInputStream(new File( "resources/et_soundtrack.wav" ));
             AudioStream audio = new AudioStream(in);
             AudioPlayer.player.start(audio);
 
-        } catch(Exception e){}
+        } catch(Exception e){
+            e.getMessage();
+        }*/
 
     }
 

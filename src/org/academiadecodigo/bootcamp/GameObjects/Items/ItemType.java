@@ -31,7 +31,7 @@ public enum ItemType {
     COMPUTER2(1, 8, "resources/notes/computer.png"),
     COMPUTER3(0, 9, "resources/notes/computer.png"),
     COMPUTER4(1, 9, "resources/notes/computer.png"),
-    ELVIS(7, 2, "resources/notes/elvis.png"),
+    ELVIS(7, 2, "resources/notes/elvis-presley.gif"),
     BIKE(1, 1, "resources/notes/bike.png"),
     TLP1(4, 4, "resources/notes/tlp.png"),
     TLP2(4, 5, "resources/notes/tlp.png"),
