@@ -26,15 +26,16 @@ public class Game implements KeyboardHandler {
     private Keyboard kb;
     private ET et;
     private Teleporter teleporter;
+    private Picture options;
     private Rectangle box = new Rectangle(2.5 * Position.CELL_SIZE + Position.PADDING, 4 * Position.CELL_SIZE + Position.PADDING, 300, 120);
-    private Text text = new Text( 4* Position.CELL_SIZE + Position.PADDING, 4.8 * Position.CELL_SIZE + Position.PADDING, "The safe is locked!");
+    private Text text = new Text(4 * Position.CELL_SIZE + Position.PADDING, 4.8 * Position.CELL_SIZE + Position.PADDING, "The safe is locked!");
 
 
     //METHODS
     public void start() {
-        currentRoom = new Room(RoomType.DISSECTION_CELL);
-        et = new ET(INIT_ET_COL, INIT_ET_ROW);
-        et.show();
+        currentRoom = new Room(RoomType.START_MENU);
+        //et = new ET(INIT_ET_COL, INIT_ET_ROW);
+        //et.show();
         teleporter = new Teleporter();
         createControlKeys();
     }
@@ -50,6 +51,9 @@ public class Game implements KeyboardHandler {
         addEvent(KeyboardEvent.KEY_SPACE, KeyboardEventType.KEY_PRESSED);
         addEvent(KeyboardEvent.KEY_E, KeyboardEventType.KEY_PRESSED);
         addEvent(KeyboardEvent.KEY_D, KeyboardEventType.KEY_PRESSED);
+        addEvent(KeyboardEvent.KEY_S, KeyboardEventType.KEY_PRESSED);
+        addEvent(KeyboardEvent.KEY_O, KeyboardEventType.KEY_PRESSED);
+        addEvent(KeyboardEvent.KEY_O, KeyboardEventType.KEY_RELEASED);
         addEvent(KeyboardEvent.KEY_0, KeyboardEventType.KEY_PRESSED);
         addEvent(KeyboardEvent.KEY_1, KeyboardEventType.KEY_PRESSED);
         addEvent(KeyboardEvent.KEY_2, KeyboardEventType.KEY_PRESSED);
@@ -75,23 +79,48 @@ public class Game implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent) {
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_LEFT:
-                et.goLeft();
+                if (currentRoom.getType() != RoomType.START_MENU) {
+                    et.goLeft();
+                }
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                et.goRight();
+                if (currentRoom.getType() != RoomType.START_MENU) {
+                    et.goRight();
+                }
                 break;
             case KeyboardEvent.KEY_UP:
-                et.goUp();
+                if (currentRoom.getType() != RoomType.START_MENU) {
+                    et.goUp();
+                }
                 break;
             case KeyboardEvent.KEY_DOWN:
-                et.goDown();
+                if (currentRoom.getType() != RoomType.START_MENU) {
+                    et.goDown();
+                }
                 break;
             case KeyboardEvent.KEY_SPACE:
-                interact();
-                if (currentRoom.getType().equals(RoomType.EGGXIT) && et.getPos().getCol() == 5 && et.getPos().getRow() == 4) {
-                    Picture free = new Picture(Position.PADDING, Position.PADDING, "free-alomogordo.jpg");
-                    free.draw();
-                    return;
+                if (currentRoom.getType() != RoomType.START_MENU) {
+                    interact();
+                    if (currentRoom.getType().equals(RoomType.EGGXIT) && et.getPos().getCol() == 5 && et.getPos().getRow() == 4) {
+                        Picture free = new Picture(Position.PADDING, Position.PADDING, "free-alomogordo.jpg");
+                        free.draw();
+                        return;
+                    }
+                }
+                break;
+            case KeyboardEvent.KEY_O:
+                if (currentRoom.getType() == RoomType.START_MENU && !currentRoom.isShowing()){
+                    options = new Picture(Position.PADDING, Position.PADDING, "menu_options.png");
+                    options.translate(Position.CELL_SIZE * 0.5, Position.CELL_SIZE * 0.5);
+                    options.draw();
+                    currentRoom.setIsShowing(true);
+                }
+                break;
+            case KeyboardEvent.KEY_S:
+                if (currentRoom.getType() == RoomType.START_MENU) {
+                    currentRoom = new Room(RoomType.DISSECTION_CELL);
+                    et = new ET(INIT_ET_COL, INIT_ET_ROW);
+                    et.show();
                 }
                 break;
             case KeyboardEvent.KEY_E:
@@ -177,7 +206,7 @@ public class Game implements KeyboardHandler {
                         return;
                     }
                     if ((((Item) currentRoom.getItems()[i]).getType().equals(ItemType.SAFE1) || ((Item) currentRoom.getItems()[i]).getType().equals(ItemType.SAFE2))      //if item is a safe
-                    && !ItemType.KEY.isFound()) {
+                            && !ItemType.KEY.isFound()) {
                         box.fill();
                         box.setColor(Color.WHITE);
                         text.draw();
@@ -193,12 +222,12 @@ public class Game implements KeyboardHandler {
     }
 
 
-    private void setEggxitRoom (){
-        if (teleporter.isEggxitON()){
-            currentRoom.setPicture(new Picture (Position.PADDING,Position.PADDING,RoomType.EGGXIT.getPic()));
+    private void setEggxitRoom() {
+        if (teleporter.isEggxitON()) {
+            currentRoom.setPicture(new Picture(Position.PADDING, Position.PADDING, RoomType.EGGXIT.getPic()));
             currentRoom.getPicture().draw();
             currentRoom = new Room(RoomType.EGGXIT);
-            et = new ET(0,0);
+            et = new ET(0, 0);
             et.show();
         }
 
@@ -239,7 +268,19 @@ public class Game implements KeyboardHandler {
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
-
+        switch(keyboardEvent.getKey()) {
+            case KeyboardEvent.KEY_O:
+            if (currentRoom.getType() == RoomType.START_MENU && currentRoom.isShowing()) {
+                options.delete();
+                System.out.println("Is Showing: " + currentRoom.isShowing());
+                currentRoom.setIsShowing(false);
+                System.out.println("Releasing O");
+                System.out.println("Is Showing: " + currentRoom.isShowing());
+            }
+            break;
+            default:
+                System.out.println("Something went wrong with the key release");
+        }
     }
 
 

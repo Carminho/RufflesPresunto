@@ -15,7 +15,8 @@ public enum RoomType {
     MEETING_ROOM(ItemType.CEO1, ItemType.CEO2, ItemType.CEO3, ItemType.CEO4, ItemType.DEADBODY1, ItemType.DEADBODY2, DoorType.FOUR_THREE, "meeting_room.jpeg"),
     LAB(ItemType.COMPUTER1, ItemType.COMPUTER2, ItemType.COMPUTER3, ItemType.COMPUTER4, DoorType.FIVE_THREE, "lab.jpeg"),
     WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP1, ItemType.TLP2, ItemType.TLP3, ItemType.TLP4, ItemType.TLP5, ItemType.TLP6, DoorType.SIX_THREE, "warehouse.jpeg"),
-    EGGXIT(ItemType.ET_GAME_DISK, "eggxit.jpeg");
+    EGGXIT(ItemType.ET_GAME_DISK, "eggxit.jpeg"),
+    START_MENU("start_menu.jpeg");
 
 
     //PROPERTIES
@@ -129,6 +130,13 @@ public enum RoomType {
         this.doors[2] = new Door(type4);
         this.doors[3] = new Door(type5);
         this.pic = imagePath;
+    }
+
+    //Rooms with 0 items and 0 doors
+    RoomType(String imagePath) {
+        this.pic = imagePath;
+        this.doors = new Door[0];
+        this.items = new Item[0];
     }
 
     public Item[] getItems() {
