@@ -9,13 +9,13 @@ import org.academiadecodigo.bootcamp.GameObjects.Items.ItemType;
 
 public enum RoomType {
 
-    DISSECTION_CELL(ItemType.DEAD_ET_BED1, ItemType.DEAD_ET_BED2, ItemType.DEAD_ET_BED3, ItemType.DRAWER1, ItemType.DRAWER2, ItemType.DRAWER3, ItemType.DRAWER4, ItemType.DESK1, ItemType.DESK2, ItemType.DESK3, ItemType.DESK4, DoorType.ONE_TWO, "resources/dissection-room.jpeg"),
-    SECURITY(ItemType.KEY, ItemType.SAFE1,ItemType.SAFE2, ItemType.CARPET1,ItemType.CARPET2, DoorType.TWO_ONE, DoorType.TWO_THREE, "resources/security.jpeg"),
-    LOBBY(ItemType.BUG,DoorType.THREE_TWO, DoorType.THREE_FOUR, DoorType.THREE_FIVE, DoorType.THREE_SIX, "resources/lobby.jpeg"),
-    MEETING_ROOM(ItemType.CEO1, ItemType.CEO2, ItemType.CEO3, ItemType.CEO4, ItemType.DEADBODY1, ItemType.DEADBODY2, DoorType.FOUR_THREE, "resources/meeting_room.jpeg"),
-    LAB(ItemType.COMPUTER1, ItemType.COMPUTER2, ItemType.COMPUTER3, ItemType.COMPUTER4, DoorType.FIVE_THREE, "resources/lab.jpeg"),
-    WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP1, ItemType.TLP2, ItemType.TLP3, ItemType.TLP4, ItemType.TLP5, ItemType.TLP6, DoorType.SIX_THREE, "resources/warehouse.jpeg"),
-    EGGXIT(ItemType.ET_GAME_DISK, "resources/eggxit.jpeg");
+    DISSECTION_CELL(ItemType.DEAD_ET_BED1, ItemType.DEAD_ET_BED2, ItemType.DEAD_ET_BED3, ItemType.DRAWER1, ItemType.DRAWER2, ItemType.DRAWER3, ItemType.DRAWER4, ItemType.DESK1, ItemType.DESK2, ItemType.DESK3, ItemType.DESK4, DoorType.ONE_TWO, "dissection-room.jpeg"),
+    SECURITY(ItemType.KEY, ItemType.SAFE1,ItemType.SAFE2, ItemType.CARPET1,ItemType.CARPET2, DoorType.TWO_ONE, DoorType.TWO_THREE, "security.jpeg"),
+    LOBBY(ItemType.BUG,DoorType.THREE_TWO, DoorType.THREE_FOUR, DoorType.THREE_FIVE, DoorType.THREE_SIX, "lobby.jpeg"),
+    MEETING_ROOM(ItemType.CEO1, ItemType.CEO2, ItemType.CEO3, ItemType.CEO4, ItemType.DEADBODY1, ItemType.DEADBODY2, DoorType.FOUR_THREE, "meeting_room.jpeg"),
+    LAB(ItemType.COMPUTER1, ItemType.COMPUTER2, ItemType.COMPUTER3, ItemType.COMPUTER4, DoorType.FIVE_THREE, "lab.jpeg"),
+    WAREHOUSE(ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.ELVIS, ItemType.BIKE, ItemType.TLP1, ItemType.TLP2, ItemType.TLP3, ItemType.TLP4, ItemType.TLP5, ItemType.TLP6, DoorType.SIX_THREE, "warehouse.jpeg"),
+    EGGXIT(ItemType.ET_GAME_DISK, "eggxit.jpeg");
 
 
     //PROPERTIES

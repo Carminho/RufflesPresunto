@@ -89,7 +89,7 @@ public class Game implements KeyboardHandler {
             case KeyboardEvent.KEY_SPACE:
                 interact();
                 if (currentRoom.getType().equals(RoomType.EGGXIT) && et.getPos().getCol() == 5 && et.getPos().getRow() == 4) {
-                    Picture free = new Picture(Position.PADDING, Position.PADDING, "resources/free-alomogordo.jpg");
+                    Picture free = new Picture(Position.PADDING, Position.PADDING, "free-alomogordo.jpg");
                     free.draw();
                     return;
                 }
