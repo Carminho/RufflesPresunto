@@ -10,7 +10,7 @@ public class Main {
         Sound s = new Sound();
 
 
-        s.sound();
+        s.sound(); 
 
     }
 
